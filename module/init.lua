@@ -42,6 +42,7 @@ local DEFAULTS = {
   hunters = { tannery = true, carry = 2, stored = 4, chance = 50 },
   stables = { breed = true, panel = true, breed_seconds = 0, slowdown = true, normal_horses = 4,
     slowdown_factor = 3, slowest_seconds = 600 },
+  ai = { decorations = true },
 }
 
 ---------------------------------------------------------------------------------------
@@ -513,6 +514,91 @@ end
 local AOB_COW_FARMER = "80 B9 ? ? ? ? 00 74 09 66 89 96 ? ? ? ? EB ? 66 83 B9 ? ? ? ? 00 75 09 66 89 96 ? ? ? ? EB ? 0F B7 96"
 local COW_FARMER_JUMP = 0x1A
 
+---------------------------------------------------------------------------------------
+-- AI castle decorations: no piles of flags, braziers or heads on spikes
+---------------------------------------------------------------------------------------
+
+-- aiPlaceFlag(player): `push ebx / push edi / mov edi,[esp+0xC] / mov eax,edi / imul eax,eax,0x39F4 /
+-- mov ecx,[eax+lord] / imul ecx,ecx,0x2A4 / cmp [eax+count],0 / mov ebx,[ecx+decoration kind] / jle /
+-- push ebp / push esi / lea ebp,[eax+spots] / mov dword [esp+0x14],10`. Its test at +0x47:
+-- `movsx eax,word [esi*2+objects on tile] / test / je PLACE / imul eax,eax,0xE8 /
+-- movsx edx,word [eax+kind] / cmp edx,ebx / je SKIP` (29 bytes); +0x64 PLACE (`push edi / push esi /
+-- mov ecx,tile map / call` the tile test, whose `mov eax,[edi+esi*4+tile flags]` is at +0x0D).
+local AOB_AI_FLAG = "53 57 8B 7C 24 0C 8B C7 69 C0 F4 39 00 00 8B 88 ? ? ? ? 69 C9 A4 02 00 00 83 B8 ? ? ? ? "
+  .. "00 8B 99 ? ? ? ? 0F 8E ? ? ? ? 55 56 8D A8 ? ? ? ? C7 44 24 14 0A 00 00 00"
+-- aiPlaceBrazier(player): its test at +0x2E: `movsx eax,word [esi*2+objects] / test / je PLACE /
+-- imul eax,eax,0xE8 / cmp word [eax+kind],0xE / je SKIP` (28 bytes).
+local AOB_AI_BRAZIER = "57 8B 7C 24 08 8B C7 69 C0 F4 39 00 00 83 B8 ? ? ? ? 00 0F 8E ? ? ? ? 53 55 56 8D 98 ? ? ? ? "
+  .. "BD 0A 00 00 00 8B 33 85 F6 7E ? 0F BF 04 75"
+-- deleteAllSeagulls: `mov ecx,1 / push esi / mov [..],ecx / mov esi,2 / ... cmp [eax+state],si` with
+-- the entity list at +46 and deleteEntity called at +50.
+local AOB_DELETE_GULLS = "B9 01 00 00 00 56 89 0D ? ? ? ? BE 02 00 00 00 8B C1 69 C0 E8 00 00 00 66 39 B0 ? ? ? ?"
+local AI_DECORATION = {
+  start = 6, flagTest = 0x47, flagTestSize = 29, brazierTest = 0x2E, brazierTestSize = 28,
+  head = { 0x00, { 0x0F, 0xBF, 0x04, 0x75 } }, kind = { 0x12, { 0x0F, 0xBF, 0x90 } },
+  brazierKind = { 0x12, { 0x66, 0x83, 0xB8 } },
+  flagSkip = 0x1B, brazierSkip = 0x1A,   -- the `je SKIP` in each test
+  tileMap = { 0x64, { 0x57, 0x56, 0xB9 } }, tileTest = 0x6B, tileFlags = { 0x0D, { 0x8B, 0x84, 0xB7 } },
+  entities = 46, delete = 50,
+  -- record offsets from the kind word: state -2, owner +2, next on the tile -0xC, tile +0x22;
+  -- the list object 0x3E before it, its high-water mark at +4
+  state = -2, owner = 2, next = -0xC, tile = 0x22, list = -0x3E,
+  first = 10, last = 15, brazier = 14,         -- flags 10-13, brazier 14, heads on spikes 15
+  standsOn = 0x10000700,                        -- keep, building, crenellation, wall
+  maxEntities = 6000, maxTiles = 0x20000,
+}
+
+local function shortTarget(address)
+  local rel = core.readByte(address + 1) & 0xFF
+  if rel >= 0x80 then rel = rel - 0x100 end
+  return address + 2 + rel
+end
+
+local function patchAiDecorations()
+  local D = AI_DECORATION
+  local flag = scan(AOB_AI_FLAG, "the AI's flag placement")
+  local brazier = scan(AOB_AI_BRAZIER, "the AI's brazier placement")
+  local gulls = scan(AOB_DELETE_GULLS, "the entity removal")
+  local ftest, btest = flag + D.flagTest, brazier + D.brazierTest
+  local head = readOperand(ftest, D.head, "the AI's flag placement")
+  local kind = readOperand(ftest, D.kind, "the AI's flag placement")
+  if readOperand(btest, D.head, "the AI's brazier placement") ~= head
+      or readOperand(btest, D.brazierKind, "the AI's brazier placement") ~= kind then
+    error(MODULE_NAME .. ": the AI's brazier placement is not the code this module knows")
+  end
+  expectBytes(ftest + D.flagSkip, { 0x74 }, "the AI's flag placement")
+  expectBytes(btest + D.brazierSkip, { 0x74 }, "the AI's brazier placement")
+  local entities = core.readInteger(gulls + D.entities)
+  if entities + 0x3E ~= kind then
+    error(MODULE_NAME .. ": the entity list is not laid out as this module expects")
+  end
+  local tileMap = readOperand(flag, D.tileMap, "the AI's flag placement")
+  local logic = tileMap + readOperand(readCallTarget(flag, D.tileTest, "the AI's tile test"), D.tileFlags,
+    "the AI's tile test")
+  local values = {
+    HEAD = head, KIND = kind, NEXT = kind + D.next, STATE = kind + D.state, OWNER = kind + D.owner,
+    TILE = kind + D.tile, COUNT = kind + D.list + 4, ENTITIES = entities,
+    DELETE = readCallTarget(gulls, D.delete, "deleteEntity"), LOGIC = logic,
+    FIRST_DECORATION = D.first, LAST_DECORATION = D.last, BRAZIER_KIND = D.brazier,
+    STANDS_ON = D.standsOn, MAX_ENTITIES = D.maxEntities, MAX_TILES = D.maxTiles,
+  }
+  local function with(extra)
+    local v = {}
+    for k, x in pairs(values) do v[k] = x end
+    for k, x in pairs(extra) do v[k] = x end
+    return v
+  end
+  -- All assembled first: nothing is patched unless every piece is there.
+  local flagCheck = assemble(templates.decorationCheck, with({
+    PLACE = ftest + D.flagTestSize, SKIP = shortTarget(ftest + D.flagSkip) }))
+  local brazierCheck = assemble(templates.brazierCheck, with({
+    PLACE = btest + D.brazierTestSize, SKIP = shortTarget(btest + D.brazierSkip) }))
+  local cleanup = assemble(templates.decorationCleanup, with({ BACK = flag + D.start }))
+  jumpTo(ftest, flagCheck, D.flagTestSize)
+  jumpTo(btest, brazierCheck, D.brazierTestSize)
+  jumpTo(flag, cleanup, D.start + 0)
+end
+
 local function patchKeepCows()
   local site = scan(AOB_COW_FARMER, "where a cow checks its farmer") + COW_FARMER_JUMP
   expectBytes(site, { 0x75 }, "where a cow checks its farmer")
@@ -950,6 +1036,10 @@ local function enable(self, config)
   end
   if setting(config, "farms", "keep_cows") then
     patchKeepCows()
+  end
+  if setting(config, "ai", "decorations") then
+    local ok, message = pcall(patchAiDecorations)
+    if not ok then log(WARNING, tostring(message) .. "; AI decorations are left as they are") end
   end
   if setting(config, "hunters", "tannery") then
     patchHunters(v, config)

@@ -1333,4 +1333,134 @@ mov eax,[esp+0xC]
 jmp DESTINATION_RESUME
 ]]
 
+-- AI castle decorations (aiPlaceFlag / aiPlaceBrazier). An AI keeps up to ten spots for its
+-- lord's decoration (a flag, or heads on spikes) and for braziers, and every so often puts one
+-- on each spot that has none. "Has none" was: the topmost object on the tile is not one. Any
+-- other object on top - the keep's own flag, a dust cloud, a crow - made it add another, so
+-- they piled up on one tile for ever (and heads on spikes bring crows, which made it worse).
+-- These replace that test: every object on the tile counts (DECORATION: any flag, the lord's
+-- kind or heads; BRAZIER: braziers). In: eax free, esi the tile, ebx the kind (flags).
+templates.decorationCheck = [[
+movsx eax, word [esi*2+HEAD]
+mov ecx, 64
+dc_loop:
+test eax, eax
+jle dc_place
+imul edx, eax, 0xE8
+movsx edx, word [edx+KIND]
+cmp edx, ebx
+je dc_skip
+cmp edx, FIRST_DECORATION
+jl dc_next
+cmp edx, LAST_DECORATION
+jg dc_next
+cmp edx, BRAZIER_KIND
+jne dc_skip
+dc_next:
+imul edx, eax, 0xE8
+movsx edx, word [edx+NEXT]
+cmp edx, eax
+je dc_place
+mov eax, edx
+dec ecx
+jnz dc_loop
+dc_place:
+jmp PLACE
+dc_skip:
+jmp SKIP
+]]
+
+templates.brazierCheck = [[
+movsx eax, word [esi*2+HEAD]
+mov ecx, 64
+bc_loop:
+test eax, eax
+jle bc_place
+imul edx, eax, 0xE8
+cmp word [edx+KIND], BRAZIER_KIND
+je bc_skip
+movsx edx, word [edx+NEXT]
+cmp edx, eax
+je bc_place
+mov eax, edx
+dec ecx
+jnz bc_loop
+bc_place:
+jmp PLACE
+bc_skip:
+jmp SKIP
+]]
+
+-- At the start of aiPlaceFlag(player), replacing `push ebx / push edi / mov edi,[esp+0xC]`:
+-- the player's own decorations (flags, braziers, heads: FIRST..LAST_DECORATION) are cleared up
+-- first - one that no longer stands on a keep, building, wall or crenellation (its tower was
+-- pulled down, say), and every one more than the first of its kind and owner on a tile (the
+-- old piles).
+templates.decorationCleanup = [[
+pushad
+mov edi, [esp+0x24]
+mov ebp, [COUNT]
+cmp ebp, MAX_ENTITIES
+jbe cu_count
+mov ebp, MAX_ENTITIES
+cu_count:
+mov esi, 1
+cu_loop:
+cmp esi, ebp
+jge cu_done
+mov eax, esi
+imul eax, eax, 0xE8
+cmp word [eax+STATE], 0
+je cu_next
+movsx edx, word [eax+KIND]
+cmp edx, FIRST_DECORATION
+jl cu_next
+cmp edx, LAST_DECORATION
+jg cu_next
+movsx ecx, word [eax+OWNER]
+cmp ecx, edi
+jne cu_next
+mov ecx, [eax+TILE]
+cmp ecx, MAX_TILES
+jae cu_next
+test dword [ecx*4+LOGIC], STANDS_ON
+jz cu_delete
+movsx ebx, word [ecx*2+HEAD]
+mov ecx, 64
+cu_dup:
+test ebx, ebx
+jle cu_next
+cmp ebx, esi
+je cu_next
+mov eax, ebx
+imul eax, eax, 0xE8
+cmp word [eax+STATE], 0
+je cu_dup_next
+cmp word [eax+KIND], dx
+jne cu_dup_next
+cmp word [eax+OWNER], di
+je cu_delete
+cu_dup_next:
+movsx eax, word [eax+NEXT]
+cmp eax, ebx
+je cu_next
+mov ebx, eax
+dec ecx
+jnz cu_dup
+jmp cu_next
+cu_delete:
+push esi
+mov ecx, ENTITIES
+call DELETE
+cu_next:
+inc esi
+jmp cu_loop
+cu_done:
+popad
+push ebx
+push edi
+mov edi, [esp+0xC]
+jmp BACK
+]]
+
 return templates

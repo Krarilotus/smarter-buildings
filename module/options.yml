@@ -297,3 +297,18 @@ options:
       min: 1
       max: 100
       step: 1
+
+- display: GroupBox
+  category: [Smarter Buildings]
+  header: '{{ai_group}}'
+  text: '{{ai_group_descr}}'
+  hasHeader: true
+  children:
+  - url: smarter-buildings.ai.decorations
+    name: smarter-buildings-ai-decorations
+    text: '{{ai_decorations}}'
+    tooltip: '{{ai_decorations_tooltip}}'
+    display: Switch
+    contents:
+      type: boolean
+      value: true

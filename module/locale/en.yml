@@ -143,3 +143,14 @@ hunters_carry_tooltip: |
 hunters_stored: Carcasses a tannery keeps
 hunters_stored_tooltip: |
   The most carcasses one tannery keeps waiting for hunters. Further cows leave nothing.
+ai_group: AI castles
+ai_group_descr: |
+  How AI players decorate their castles.
+ai_decorations: No piles of AI flags, braziers or heads on spikes
+ai_decorations_tooltip: |
+  An AI puts its lord's flags (or heads on spikes) and braziers on fixed spots of its castle and
+  adds one wherever one is missing. It only looked at the topmost thing on the spot, so anything
+  else there - the keep's flag, a dust cloud, a crow - made it add another, and they piled up on
+  the same spot all game long (heads on spikes bring crows, so those got out of hand). Now it
+  sees everything on the spot. It also clears away its own flags, braziers and heads that pile
+  up on one spot or no longer stand on a tower, wall or building.

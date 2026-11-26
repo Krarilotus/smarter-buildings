@@ -213,7 +213,7 @@ local GOLD_ICON = 0x7C                  -- the gold coin among the cost pictures
 -- Other places addresses are read from.
 -- The game tick counter: mov ecx, [edi+0x998] / mov edx, [ticks] in updateUnits. The mask load
 -- before it is patched by other modules.
-local AOB_TICKS = "8B 8F 98 09 00 00 8B 15 I(? ? ? ?)"
+local AOB_TICKS = "8B 8F 98 09 00 00 8B 15 ? ? ? ?"
 local AOB_MENU_ITEM = "8B 56 10 8B 46 4C 8B 4E 0C 52 8B 50 08 03 56 08 8B 40 04 03 46 04 51 52 50 "
   .. "B9 ? ? ? ? E8"
 local MENU_ITEM_MOUSE = { 0x19, { 0xB9 } }
@@ -281,9 +281,9 @@ local function scan(pattern, purpose)
 end
 
 local function tickCounter(feature)
-  local ok, _, ticks = pcall(utils.AOBExtract, AOB_TICKS)
-  if ok and ticks then return ticks end
-  log(WARNING, string.format("%s: game tick counter not found, %s stays off", MODULE_NAME, feature))
+  local site, problem = core.AOBScanUnique(AOB_TICKS)
+  if site then return core.readInteger(site + 8) end
+  log(WARNING, string.format("%s: game tick counter %s, %s stays off", MODULE_NAME, problem, feature))
 end
 
 local function expectBytes(address, bytes, purpose)

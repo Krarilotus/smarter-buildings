@@ -382,14 +382,15 @@ local function patchStables(v)
     or readOperand(site, KNIGHT_TIE.stableUid, purpose) ~= 0x614 + UNIT_STABLE_UID then
     error(MODULE_NAME .. ": the knight is not tied to his stable the way this module knows")
   end
+  local breeding = scan(AOB_HORSE_BREEDING, "the stable's horse breeding")
+  expectBytes(breeding + HORSE_BREEDING_SIZE - 2, { 0x7E }, "the stable's horse breeding")
   local wrapper = assemble(templates.stables, { LINKAGE = linkage, BUILDINGS = v.BUILDINGS })
   redirectCall(site, KNIGHT_HORSE_CALL, wrapper, "where a knight takes a horse")
+  return breeding
 end
 
-local function patchHorseBreeding(v, config, panel)
-  local site = scan(AOB_HORSE_BREEDING, "the stable's horse breeding")
+local function patchHorseBreeding(v, config, panel, site)
   local jump = site + HORSE_BREEDING_SIZE - 2
-  expectBytes(jump, { 0x7E }, "the stable's horse breeding")
   -- 0 = the game's own breeding time: the immediate this hook replaces (550 ticks unless the exe
   -- was changed).
   local seconds = number(config, "stables", "breed_seconds", 0, 3600)
@@ -1049,11 +1050,11 @@ local function enable(self, config)
   end
   v.worldScratch = {}
   if stables then
-    local ok, message = pcall(patchStables, v)
+    local ok, result = pcall(patchStables, v)
     if ok then
-      patchHorseBreeding(v, config, setting(config, "stables", "panel"))
+      patchHorseBreeding(v, config, setting(config, "stables", "panel"), result)
     else
-      log(WARNING, tostring(message) .. "; stable breeding is off")
+      log(WARNING, tostring(result) .. "; stable breeding is off")
     end
   end
   if setting(config, "farms", "dairy_scrub") then

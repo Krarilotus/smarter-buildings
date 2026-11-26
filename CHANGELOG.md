@@ -7,7 +7,8 @@ Earlier versions are described in the commit messages (`<version> - <what change
 - **Every option is off by default**, so the module alone plays like the original game. The
   Smarter Buildings Recommended plugin turns the previous defaults back on.
 - If the game's instructions that tie a knight to his stable differ from the expected ones,
-  stable breeding stays off with a warning; the other options still work.
+  stable breeding stays off with a warning; the other options still work. The same holds when
+  the breeding timer differs: every stable site is checked before the first stable change.
 - The 1.0.12 changes below, which were not released on their own.
 
 ## 1.0.12

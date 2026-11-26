@@ -764,11 +764,10 @@ def test_knight_death(ext):
 
 def test_tie_check(ext):
     print(" the knight's tie is checked at load")
-    import lupa.lua54 as lupa
     off ={'doors': {'dynamic': False, 'storage': False, 'unstuck': False}, 'firemen': {'spread': False},
            'repair': {'button': False, 'gold': False, 'fire_blocks': False, 'ai': False},
            'farms': {'dairy_scrub': False, 'ground_overlay': False, 'keep_cows': False},
-           'ai': {'decorations': False}, 'hunters': {'tannery': False}}
+           'ai': {'decorations': False}, 'hunters': {'tannery': False}, 'stables': {'breed': True}}
     for label, offset, value in (('stable field', 0x16, 0x614 + 0x3D8),
                                  ('stable uid field', 0x28, 0x614 + 0x3E4),
                                  ('building uid', 0x22, None)):
@@ -778,13 +777,10 @@ def test_tie_check(ext):
         site = H.E.find('66 01 9E ? ? ? ? 0F B7 86 ? ? ? ? 66 3D 26 02 7E ?')[0]
         H.m.write(site, H.E.bytes_(site, 20))             # and its own breeding code
         H.m.write(r + offset, struct.pack('<I', value if value is not None else H.E.u32(r + offset) + 4))
-        try:
-            H.mod[b'enable'](H.mod, H.to_lua(off))
-            got = 'loaded'
-        except lupa.LuaError as e:
-            got = 'refused' if b'tied to his stable' in (e.args[0] if isinstance(e.args[0], bytes)
-                                                         else str(e).encode()) else str(e)
-        check('a different %s is refused' % label, got, 'refused')
+        H.mod[b'enable'](H.mod, H.to_lua(off))
+        check('a different %s leaves the stables off' % label,
+              (H.m.read(r + 0xE, 5), any('tied to his stable' in line for line in H.logs)),
+              (H.E.bytes_(r + 0xE, 5), True))
 
 
 if __name__ == '__main__':

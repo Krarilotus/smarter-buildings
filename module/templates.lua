@@ -3,11 +3,10 @@
 local templates = {}
 
 -- Stables: wraps the call in euroRecruit that ties a new knight to a stable's horse
--- (thiscall on GameState, args player, unit, ret 8). The horse leaves the stable with the
--- knight: its stall is emptied, so the stable breeds a new one. The call still answers the
--- stable, so the game ties the knight to it as before (unit +0x3D6 = stable, +0x3E0 = its uid,
--- kept in the save); countKnights reads that tie. When a knight dies the game only frees a
--- stall that holds him, so freeing his stall here leaves nothing for it to free.
+-- (thiscall on GameState, args player, unit, ret 8). The knight's stall is emptied, so the
+-- stable breeds a new horse. The call still returns the stable, which the game stores in the
+-- knight (unit +0x3D6 = stable, +0x3E0 = its uid, both saved); countKnights reads them. The
+-- game frees only a stall that holds the dying knight, so an emptied stall is not freed again.
 templates.stables = [[
 push dword [esp+8]
 push dword [esp+8]

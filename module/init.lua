@@ -1049,8 +1049,12 @@ local function enable(self, config)
   end
   v.worldScratch = {}
   if stables then
-    patchStables(v)
-    patchHorseBreeding(v, config, setting(config, "stables", "panel"))
+    local ok, message = pcall(patchStables, v)
+    if ok then
+      patchHorseBreeding(v, config, setting(config, "stables", "panel"))
+    else
+      log(WARNING, tostring(message) .. "; stable breeding is off")
+    end
   end
   if setting(config, "farms", "dairy_scrub") then
     patchDairyGround()

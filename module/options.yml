@@ -4,7 +4,7 @@ options:
   display: UCP2Switch
   contents:
     type: boolean
-    value: true
+    value: false
   header: '{{dynamic}}'
   text: '{{dynamic_tooltip}}'
   category:
@@ -14,7 +14,7 @@ options:
   display: UCP2Switch
   contents:
     type: boolean
-    value: true
+    value: false
   header: '{{storage}}'
   text: '{{storage_tooltip}}'
   category:
@@ -24,7 +24,7 @@ options:
   display: UCP2Switch
   contents:
     type: boolean
-    value: true
+    value: false
   header: '{{unstuck}}'
   text: '{{unstuck_tooltip}}'
   category:
@@ -34,7 +34,7 @@ options:
   display: UCP2Switch
   contents:
     type: boolean
-    value: true
+    value: false
   header: '{{fire_blocks}}'
   text: '{{fire_blocks_tooltip}}'
   category:
@@ -44,7 +44,7 @@ options:
   display: UCP2Switch
   contents:
     type: boolean
-    value: true
+    value: false
   header: '{{firemen}}'
   text: '{{firemen_tooltip}}'
   category:
@@ -72,7 +72,7 @@ options:
   display: UCP2Switch
   contents:
     type: boolean
-    value: true
+    value: false
   header: '{{keep_cows}}'
   text: '{{keep_cows_tooltip}}'
   category:
@@ -82,7 +82,7 @@ options:
   display: UCP2Switch
   contents:
     type: boolean
-    value: true
+    value: false
   header: '{{button}}'
   text: '{{button_tooltip}}'
   category:
@@ -127,7 +127,7 @@ options:
   display: UCP2Switch
   contents:
     type: boolean
-    value: true
+    value: false
   header: '{{stable_panel}}'
   text: '{{stable_panel_tooltip}}'
   category:
@@ -137,7 +137,7 @@ options:
   display: UCP2Switch
   contents:
     type: boolean
-    value: true
+    value: false
   header: '{{ground_overlay}}'
   text: '{{ground_overlay_tooltip}}'
   category:
@@ -147,7 +147,7 @@ options:
   display: UCP2Switch
   contents:
     type: boolean
-    value: true
+    value: false
   header: '{{gold}}'
   text: '{{gold_tooltip}}'
   category:
@@ -167,7 +167,7 @@ options:
   display: UCP2Switch
   contents:
     type: boolean
-    value: true
+    value: false
   header: '{{breed}}'
   text: '{{breed_tooltip}}'
   category:
@@ -195,7 +195,7 @@ options:
     display: UCP2Switch
     contents:
       type: boolean
-      value: true
+      value: false
     header: '{{slowdown}}'
     text: '{{slowdown_tooltip}}'
     children:
@@ -255,7 +255,7 @@ options:
   display: UCP2Switch
   contents:
     type: boolean
-    value: true
+    value: false
   header: '{{dairy_scrub}}'
   text: '{{dairy_scrub_tooltip}}'
   category:
@@ -265,7 +265,7 @@ options:
   display: UCP2Switch
   contents:
     type: boolean
-    value: true
+    value: false
   header: '{{hunters_tannery}}'
   text: '{{hunters_tannery_tooltip}}'
   category:
@@ -327,7 +327,7 @@ options:
   display: UCP2Switch
   contents:
     type: boolean
-    value: true
+    value: false
   header: '{{ai_repair}}'
   text: '{{ai_tooltip}}'
   category:
@@ -390,7 +390,7 @@ options:
   display: UCP2Switch
   contents:
     type: boolean
-    value: true
+    value: false
   header: '{{ai_decorations}}'
   text: '{{ai_decorations_tooltip}}'
   category:

@@ -55,3 +55,10 @@ PowerShell for fasm.dll; it reads the executables from the game folder named in 
 
 Every address is found by pattern scan or read from the instruction that uses it, so the module
 runs on `Stronghold Crusader.exe` and `Stronghold_Crusader_Extreme.exe` alike.
+
+## Vanilla and Recommended
+
+Every option of the module is off by default, so the module alone plays like the original
+game. Two plugins in this repository form the Smarter Buildings family in the launcher:
+`smarter-buildings-recommended` (offered first) switches on the recommended settings, `smarter-buildings-vanilla`
+keeps everything off. Plugins that build on the module set the options they need themselves.

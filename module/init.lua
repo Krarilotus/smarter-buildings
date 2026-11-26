@@ -35,16 +35,16 @@ local templates = require("templates")
 local MODULE_NAME = "smarter-buildings"
 
 local DEFAULTS = {
-  doors = { dynamic = true, storage = true, unstuck = true },
-  firemen = { spread = true, tiles = 20 },
+  doors = { dynamic = false, storage = false, unstuck = false },
+  firemen = { spread = false, tiles = 20 },
   blacksmith = { maces = false },
-  repair = { button = true, gold = true, fire_blocks = true, x = 340, y = 466,
-    ai = true, ai_interval = 60, ai_minimum_gold = 2000, ai_damage = 20 },
-  farms = { dairy_scrub = true, ground_overlay = true, keep_cows = true },
-  hunters = { tannery = true, carry = 2, stored = 4, chance = 50 },
-  stables = { breed = true, panel = true, breed_seconds = 0, slowdown = true, normal_horses = 4,
+  repair = { button = false, gold = false, fire_blocks = false, x = 340, y = 466,
+    ai = false, ai_interval = 60, ai_minimum_gold = 2000, ai_damage = 20 },
+  farms = { dairy_scrub = false, ground_overlay = false, keep_cows = false },
+  hunters = { tannery = false, carry = 2, stored = 4, chance = 50 },
+  stables = { breed = false, panel = false, breed_seconds = 0, slowdown = false, normal_horses = 4,
     slowdown_factor = 3, slowest_seconds = 600 },
-  ai = { decorations = true },
+  ai = { decorations = false },
 }
 
 ---------------------------------------------------------------------------------------

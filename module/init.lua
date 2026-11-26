@@ -211,8 +211,9 @@ local COST_TEXT_LAYER_SIZE = 6
 local GOLD_ICON = 0x7C                  -- the gold coin among the cost pictures (gm 0x2E)
 
 -- Other places addresses are read from.
-local AOB_TICK_COUNTER = "8B 87 50 0A 00 00 8B 8F 98 09 00 00 8B 15 ? ? ? ?"
-local TICK_COUNTER_OPERAND = 14
+-- The game tick counter: mov ecx, [edi+0x998] / mov edx, [ticks] in updateUnits. The mask load
+-- before it is patched by other modules.
+local AOB_TICKS = "8B 8F 98 09 00 00 8B 15 I(? ? ? ?)"
 local AOB_MENU_ITEM = "8B 56 10 8B 46 4C 8B 4E 0C 52 8B 50 08 03 56 08 8B 40 04 03 46 04 51 52 50 "
   .. "B9 ? ? ? ? E8"
 local MENU_ITEM_MOUSE = { 0x19, { 0xB9 } }
@@ -277,6 +278,12 @@ local function scan(pattern, purpose)
     error(MODULE_NAME .. ": could not find " .. purpose)
   end
   return address
+end
+
+local function tickCounter(feature)
+  local ok, _, ticks = pcall(utils.AOBExtract, AOB_TICKS)
+  if ok and ticks then return ticks end
+  log(WARNING, string.format("%s: game tick counter not found, %s stays off", MODULE_NAME, feature))
 end
 
 local function expectBytes(address, bytes, purpose)
@@ -1002,6 +1009,14 @@ local function enable(self, config)
   local fireBlocks = setting(config, "repair", "fire_blocks")
   local aiRepair = setting(config, "repair", "ai")
   local stables = setting(config, "stables", "breed")
+  local hunters = setting(config, "hunters", "tannery")
+  local ticks
+  if dynamicDoors or storageDoors or unstuck or aiRepair or stables or hunters then
+    ticks = tickCounter("doors, AI repair, stable breeding and hunters")
+    if not ticks then
+      dynamicDoors, storageDoors, unstuck, aiRepair, stables, hunters = false, false, false, false, false, false
+    end
+  end
 
   local accessible = scan(AOB_IS_ACCESSIBLE, "the game's door check")
   local repairAction = scan(AOB_REPAIR_ACTION, "the Repair button")
@@ -1019,7 +1034,7 @@ local function enable(self, config)
     BUILDINGS_STATE = buildingsState,
     BUILDINGS = buildingsState + 0x14,
     UNITS = readOperand(fireSearch, FIRE_UNIT_TILE, "the units") - 0xD4,
-    TICKS = core.readInteger(scan(AOB_TICK_COUNTER, "the tick counter") + TICK_COUNTER_OPERAND),
+    TICKS = ticks,
     AREAS = readOperand(accessible, ACCESSIBLE_AREAS, "the area map"),
     ROWS = readOperand(accessible, ACCESSIBLE_ROWS, "the map rows"),
     HEIGHTS = readOperand(accessible, ACCESSIBLE_HEIGHTS, "the height map"),
@@ -1070,7 +1085,7 @@ local function enable(self, config)
     local ok, message = pcall(patchAiDecorations)
     if not ok then log(WARNING, tostring(message) .. "; AI decorations are left as they are") end
   end
-  if setting(config, "hunters", "tannery") then
+  if hunters then
     patchHunters(v, config)
   end
   if firemen then

@@ -2,7 +2,15 @@
 
 Earlier versions are described in the commit messages (`<version> - <what changed>`).
 
-## 1.0.12 (unreleased)
+## 1.0.13 (unreleased)
+
+- **Every option is off by default**, so the module alone plays like the original game. The
+  Smarter Buildings Recommended plugin turns the previous defaults back on.
+- If the game's instructions that tie a knight to his stable differ from the expected ones,
+  stable breeding stays off with a warning; the other options still work.
+- The 1.0.12 changes below, which were not released on their own.
+
+## 1.0.12
 
 - **Stables remember their knights after loading a save.** A knight still takes his horse out
   of the stall, but he now stays tied to his stable the way the game itself does it, and the

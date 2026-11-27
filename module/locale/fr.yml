@@ -1,46 +1,44 @@
-dynamic: Les portes se déplacent lorsqu'elles sont bloquées
-dynamic_tooltip: Les masures, chapelles, églises, cathédrales, auberges, apothicaires, puits, réservoirs d'eau, marchés, écuries, guildes et chenils vérifient continuellement leur entrée. Si quelque chose est construit devant ou que la case devient inaccessible, la porte se déplace sur un côté libre du bâtiment. Auparavant, seul l'emplacement choisi à la construction était utilisé.
-storage: Les portes du grenier et de l'armurerie se déplacent aussi
-storage_tooltip: Le grenier et l'armurerie vérifient leurs portes de la même façon, permettant de continuer à livrer les biens lorsqu'une porte ou un mur coupe l'ancienne entrée des ateliers.
-unstuck: Les ouvriers bloqués essaient une autre porte
-unstuck_tooltip: Lorsque quelqu'un sort de son bâtiment sans trouver de chemin vers sa destination — un ouvrier vers la réserve, le grenier, l'armurerie ou le donjon, une mère et ses enfants vers le feu de camp, un prêtre, un aubergiste ou un bouffon dans sa tournée — il rentre et essaie la porte suivante autour du bâtiment (dans le sens horaire) jusqu'à en trouver une libre. Si aucune ne fonctionne, la porte reste en place.
-button: Bouton Réparer sur chaque bâtiment endommagé
-button_tooltip: |-
-  Chacun de vos bâtiments endommagés affiche le bouton Réparer. La réparation coûte la fraction du prix du bâtiment correspondant aux dégâts : à moitié détruit, il coûte la moitié de son prix. Survoler le bouton affiche le coût et vos réserves comme sur les tours (nécessite les textes d'aide du jeu activés).
-gold: Les réparations coûtent aussi de l'or
-gold_tooltip: Les bâtiments qui coûtent de l'or (les églises, par exemple) coûtent aussi cette proportion d'or à réparer. Sans cela, seuls le bois et la pierre sont facturés, comme pour les tours dans le jeu normal.
-fire_blocks: Pas de réparation pendant qu'un bâtiment brûle
-fire_blocks_tooltip: |-
-  Un bâtiment en feu compte comme un ennemi proche : le bouton Réparer est grisé jusqu'à extinction de l'incendie. Valable aussi pour les tours et les portes.
+dynamic: Utiliser une autre porte si l’entrée est bloquée
+dynamic_tooltip: Les ouvriers passent par une autre porte accessible quand leur porte habituelle est bloquée.
+storage: Déplacer aussi les portes du grenier et de l’armurerie
+storage_tooltip: Autorise le déplacement des entrées du grenier et de l’armurerie lorsqu’elles sont bloquées.
+unstuck: Rediriger les ouvriers déjà bloqués à une porte
+unstuck_tooltip: Les ouvriers déjà coincés devant une entrée bloquée tentent un autre itinéraire.
+button: Afficher Réparer sur les bâtiments endommagés
+button_tooltip: Sélectionnez un bâtiment endommagé et cliquez sur Réparer dans son panneau, ou survolez Réparer avec l’aide activée pour voir le coût.
+gold: Les réparations coûtent aussi de l’or
+gold_tooltip: Réparer un bâtiment demande de l’or en plus des matériaux habituels.
+fire_blocks: Empêcher les réparations pendant un incendie
+fire_blocks_tooltip: Attendez que le feu soit éteint avant de réparer le bâtiment.
 ai: IA
-ai_tooltip: À chaque échéance de son intervalle de réparation, un seigneur IA passe en revue ses bâtiments (tours et portes comprises) et répare le plus endommagé s'il dispose de plus d'or que son minimum, qu'aucun feu n'y brûle et qu'aucun ennemi n'est proche. Il achète au marché le bois et la pierre manquants. Les fichiers AIC peuvent définir l'intervalle et le minimum par seigneur via BuildingRepairInterval et BuildingRepairMinimumGold (nécessite le module aicloader).
+ai_tooltip: Les seigneurs IA réparent périodiquement leurs bâtiments endommagés quand ils en ont les moyens.
 ai_damage: L'IA répare à partir de ce seuil de dégâts (pour cent)
 ai_interval: Intervalle de réparation de l'IA (secondes)
 ai_minimum_gold: L'IA répare seulement au-dessus de cet or
-firemen: Les pompiers se répartissent sur plusieurs incendies
-firemen_tooltip: Quand plusieurs incendies font rage, un pompier choisit un feu vers lequel aucun autre pompier ne court déjà, au lieu que tous aillent sur le même.
-maces: Les nouvelles forges produisent des masses
-maces_tooltip: Une forge nouvellement construite démarre sur les masses au lieu des épées. Vous pouvez toujours changer. Désactivé par défaut.
-breed: Les écuries remplacent les chevaux pris par les chevaliers
-breed_tooltip: Lorsqu'un chevalier prend un cheval, l'écurie commence aussitôt à en élever un nouveau. Auparavant la stalle restait vide jusqu'à la mort de ce chevalier, limitant chaque écurie à quatre chevaliers. Désactiver rétablit le délai d'élevage et le panneau d'écurie d'origine.
-stable_panel: Le panneau d'écurie affiche les chevaux vivants et le suivant
-stable_panel_tooltip: Le compteur « en service » de l'écurie compte les chevaliers vivants montant un de ses chevaux, et une barre similaire à la vie des tours montre l'avancement du prochain cheval. La barre reste pleine lorsque les quatre stalles sont occupées.
+firemen: Répartir les pompiers entre les incendies
+firemen_tooltip: Les pompiers essaient de couvrir différents foyers séparément.
+maces: Les nouvelles forges fabriquent des masses par défaut
+maces_tooltip: Utilisez le panneau habituel du forgeron pour changer la production.
+breed: Remplacer les chevaux pris par les chevaliers
+breed_tooltip: Les écuries élèvent des remplaçants pour les chevaux pris par les chevaliers.
+stable_panel: Afficher les chevaux et le prochain remplaçant
+stable_panel_tooltip: Sélectionnez une écurie pour voir ses chevaux et le prochain remplaçant.
 breed_seconds: Temps d'élevage d'un cheval (secondes)
-slowdown: L'élevage ralentit à mesure que les chevaux vivants augmentent
-slowdown_tooltip: Les chevaux vivants d'une écurie incluent ceux dans ses stalles et ceux montés par des chevaliers vivants. Sous le nombre normal, l'élevage suit le rythme normal ; chaque cheval au-delà prend plus de temps que le précédent, jusqu'au temps maximal — l'écurie ne cesse jamais d'élever. Si des chevaliers meurent, le rythme réaccélère.
+slowdown: Ralentir l’élevage quand plus de chevaux sont en vie
+slowdown_tooltip: Les écuries mettent plus de temps à remplacer les chevaux tant que davantage des leurs survivent.
 normal_horses: Chevaux vivants avant ralentissement de l'élevage
 slowdown_factor: Facteur de ralentissement par cheval supplémentaire
 slowest_seconds: Temps d'élevage le plus lent (secondes)
-dairy_scrub: Les fermes laitières peuvent se poser sur broussaille fine
-dairy_scrub_tooltip: Une ferme a besoin d'assez de sol fertile, normalement limité à l'herbe d'oasis et aux broussailles denses. Pour les fermes laitières, la broussaille fine compte aussi. Les fermes de blé, de houblon et de pommes ne changent pas.
-ground_overlay: Les fermes affichent le mauvais terrain en rouge
-ground_overlay_tooltip: Pendant le placement d'une ferme, chaque case qui n'est pas de l'herbe (terre, sable, pierre, fer, etc.) s'affiche en rouge comme les rochers et bâtiments, montrant ce qui bloque le placement. Les exigences de terrain restent identiques.
-keep_cows: Les vaches restent si leur fermier laitier meurt
-keep_cows_tooltip: Quand un fermier laitier est tué, ses vaches restent à la ferme au lieu de disparaître, permettant aux tanneurs de les chercher et à un nouveau fermier de les retrouver. Les vaches disparaissent toujours si la ferme est détruite ou mise en sommeil.
-hunters_tannery: Les chasseurs prennent des carcasses aux tanneries sans gibier
-hunters_tannery_tooltip: Chaque vache dépecée par un tanneur laisse une carcasse à sa tannerie. Lorsqu'il n'y a plus de cerfs sur la carte, un chasseur inactif va chercher des carcasses dans une tannerie de son seigneur, les rapporte à sa hutte, les découpe en viande (autant qu'un cerf) et livre la viande au grenier.
-ai_decorations: Plus d'empilements de drapeaux, braseros ou têtes sur piques de l'IA
-ai_decorations_tooltip: Une IA place les drapeaux (ou têtes sur piques) et braseros de son seigneur à des endroits fixes de son château et en rajoute dès qu'il en manque. Comme elle ne regardait que l'élément du dessus, tout autre objet — drapeau du donjon, poussière, corbeau — l'amenait à les empiler sans fin. Désormais elle voit tout ce qui s'y trouve et nettoie les empilements ou décorations flottantes.
+dairy_scrub: Autoriser les laiteries sur broussailles clairsemées
+dairy_scrub_tooltip: Les fermes laitières peuvent être placées sur des broussailles clairsemées.
+ground_overlay: Afficher les sols inadaptés aux fermes
+ground_overlay_tooltip: L’aperçu de placement indique les cases inadaptées lorsque vous placez une ferme.
+keep_cows: Garder les vaches à la mort de leur fermier
+keep_cows_tooltip: Les vaches survivent à la perte de leur fermier.
+hunters_tannery: Laisser les chasseurs récupérer les carcasses des tanneries
+hunters_tannery_tooltip: Les chasseurs peuvent prendre les carcasses stockées dans les tanneries en plus de chasser le cerf.
+ai_decorations: Empêcher l’empilement des décorations de l’IA
+ai_decorations_tooltip: Les seigneurs IA placent les décorations sur des cases libres.
 balance_changes: Modifications de l'équilibrage
 bugfixes: Corrections de bugs
 fixes: Correctifs
@@ -51,4 +49,5 @@ tags.ai: IA
 tags.economy: Économie
 tags.bugfixes: Corrections
 tags.interface: Interface
-ai_repair: Les seigneurs IA réparent leurs bâtiments
+ai_repair: Laisser les seigneurs IA réparer leurs bâtiments
+doors_group: Portes bloquées

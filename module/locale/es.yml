@@ -1,46 +1,44 @@
-dynamic: Las puertas se mueven cuando quedan bloqueadas
-dynamic_tooltip: Chozas, capillas, iglesias, catedrales, posadas, boticas, pozos, depósitos de agua, mercados, establos, gremios y perreras revisan continuamente su puerta. Si algo se construye delante o el lugar deja de ser accesible, la puerta se mueve a un lado libre del edificio. Antes solo se usaba el sitio elegido al colocar el edificio.
-storage: Las puertas del granero y del arsenal también se mueven
-storage_tooltip: El granero y el arsenal revisan sus puertas igual, para que puedan seguir entregándose bienes si una puerta o un muro separa la entrada antigua de los talleres.
-unstuck: Los trabajadores atascados prueban otra puerta
-unstuck_tooltip: Cuando alguien sale de su edificio y no halla camino hacia su destino —un trabajador al almacén, granero, arsenal o fortaleza, una madre y sus hijos a la hoguera, un sacerdote, posadero o bufón en su ronda— vuelve a entrar y prueba la siguiente puerta alrededor del edificio (en sentido horario) hasta encontrar una libre. Si ninguna sirve, la puerta permanece igual.
-button: Botón Reparar en cada edificio dañado
-button_tooltip: |-
-  Cada edificio tuyo dañado muestra el botón Reparar. Reparar cuesta la parte del precio del edificio proporcional al daño: medio destruido cuesta la mitad. Al pasar el cursor sobre el botón se muestran el coste y tus reservas como en las torres (requiere los textos de ayuda del juego activados).
+dynamic: Usar otra puerta si está bloqueada
+dynamic_tooltip: Los trabajadores usan otra puerta accesible cuando su entrada habitual está bloqueada.
+storage: Mover también las puertas de graneros y armerías
+storage_tooltip: Permite reubicar las entradas de graneros y armerías cuando están bloqueadas.
+unstuck: Redirigir trabajadores ya atascados en una puerta
+unstuck_tooltip: Los trabajadores que ya quedaron atrapados en una entrada bloqueada prueban otra ruta.
+button: Mostrar Reparar en edificios dañados
+button_tooltip: Selecciona un edificio dañado y haz clic en Reparar en su panel, o pasa el cursor por Reparar con la ayuda activada para ver el coste.
 gold: Las reparaciones también cuestan oro
-gold_tooltip: Los edificios que cuestan oro (por ejemplo, iglesias) también cuestan esa parte de oro al repararse. Sin esto solo se cobra madera y piedra, como en las torres del juego normal.
-fire_blocks: Sin reparaciones mientras un edificio arde
-fire_blocks_tooltip: |-
-  Un edificio en llamas cuenta como un enemigo cercano: el botón Reparar queda deshabilitado hasta que se apague el fuego. También para torres y puertas.
+gold_tooltip: Reparar edificios cuesta oro además de los materiales habituales.
+fire_blocks: Impedir reparaciones mientras arde
+fire_blocks_tooltip: El fuego del edificio debe apagarse antes de repararlo.
 ai: IA
-ai_tooltip: Cada vez que pasa su intervalo de reparación, un señor de la IA revisa sus edificios (incluidas torres y puertas) y repara el más dañado si tiene más oro que su mínimo, no hay fuego allí y no hay enemigos cerca. Compra en el mercado la madera y piedra que le falten. Los archivos AIC pueden fijar el intervalo y mínimo por señor mediante BuildingRepairInterval y BuildingRepairMinimumGold (requiere el módulo aicloader).
+ai_tooltip: Los señores de la IA reparan periódicamente sus edificios dañados cuando pueden pagarlo.
 ai_damage: La IA repara a partir de este daño (porcentaje)
 ai_interval: Intervalo de reparación de la IA (segundos)
 ai_minimum_gold: La IA solo repara con más oro que
-firemen: Los bomberos se reparten entre varios incendios
-firemen_tooltip: Cuando hay varios incendios, un bombero elige uno al que no corra ya otro bombero, en lugar de ir todos al mismo.
-maces: Las nuevas herrerías fabrican mazas
-maces_tooltip: Una herrería recién construida empieza fabricando mazas en lugar de espadas. Aún puedes cambiarlo. Desactivado por defecto.
-breed: Los establos reponen los caballos que toman los caballeros
-breed_tooltip: Cuando un caballero toma un caballo, el establo empieza a criar uno nuevo enseguida. Antes la plaza quedaba vacía hasta que moría ese caballero, así que un establo solo servía a cuatro caballeros. Desactivarlo restaura el temporizador y panel de establo originales.
-stable_panel: El panel del establo muestra caballos vivos y el próximo caballo
-stable_panel_tooltip: El número «en uso» del establo cuenta los caballeros vivos que montan uno de sus caballos, y una barra como la salud de las torres muestra el avance del próximo caballo. La barra está llena mientras las cuatro plazas estén ocupadas.
+firemen: Repartir bomberos entre distintos incendios
+firemen_tooltip: Los bomberos intentan cubrir incendios separados.
+maces: Las herrerías nuevas fabrican mazas por defecto
+maces_tooltip: Usa el panel habitual de la herrería para cambiar la producción.
+breed: Reponer caballos tomados por caballeros
+breed_tooltip: Los establos crían reemplazos para los caballos tomados por caballeros.
+stable_panel: Mostrar caballos y próximo reemplazo
+stable_panel_tooltip: Selecciona un establo para ver sus caballos y el próximo reemplazo.
 breed_seconds: Tiempo para criar un caballo (segundos)
-slowdown: Los establos crían más despacio cuantos más caballos suyos vivan
-slowdown_tooltip: Los caballos vivos de un establo son los que están en sus plazas más los caballeros que montan uno suyo. Por debajo del número normal se crían al ritmo habitual; cada caballo adicional tarda más que el anterior hasta el tiempo máximo —el establo nunca deja de criar—. Al morir caballeros vuelve a acelerarse.
+slowdown: Ralentizar la cría cuantos más caballos sigan vivos
+slowdown_tooltip: Los establos tardan más en reponer caballos mientras más de sus caballos sigan vivos.
 normal_horses: Caballos vivos antes de ralentizar la cría
 slowdown_factor: Factor de ralentización por cada caballo adicional
 slowest_seconds: Tiempo de cría más lento (segundos)
-dairy_scrub: Las granjas lecheras pueden colocarse en matorral ligero
-dairy_scrub_tooltip: Una granja necesita bastante terreno fértil y normalmente solo cuentan la hierba de oasis y el matorral denso. Para las granjas lecheras también cuenta el matorral ligero. Las de trigo, lúpulo y manzanas no cambian.
-ground_overlay: Las granjas muestran en rojo el mal terreno
-ground_overlay_tooltip: Al colocar una granja, cada casilla bajo ella que no sea hierba (tierra, arena, piedra, hierro, etc.) se muestra en rojo igual que rocas y edificios, permitiendo ver qué impide colocarla. Los requisitos de terreno no cambian.
-keep_cows: Las vacas permanecen cuando muere su granjero lechero
-keep_cows_tooltip: Si matan a un granjero lechero, sus vacas siguen en la granja en lugar de desaparecer, así los curtidores pueden seguir recogiéndolas y el nuevo granjero las encuentra allí. Las vacas siguen desapareciendo al demoler o desactivar la granja.
-hunters_tannery: Los cazadores recogen reses de curtidurías sin ciervos
-hunters_tannery_tooltip: Cada vaca despellejada por un curtidor deja una res en su curtiduría. Cuando no quedan ciervos en el mapa, un cazador inactivo va a una curtiduría de su señor con reses, las lleva a su cabaña, las descuartiza en carne (tanta como un ciervo) y la lleva al granero.
-ai_decorations: Evitar pilas de banderas, braseros o cabezas en picas de la IA
-ai_decorations_tooltip: Una IA coloca banderas (o cabezas en picas) y braseros en puntos fijos de su castillo y añade uno si falta. Como solo miraba el objeto superior, cualquier otra cosa —la bandera de la fortaleza, polvo, un cuervo— hacía que se apilaran sin fin. Ahora ve todo en esa casilla y retira acumulaciones o adornos flotantes propios.
+dairy_scrub: Permitir granjas lecheras en matorral ligero
+dairy_scrub_tooltip: Las granjas lecheras pueden colocarse sobre matorral fino.
+ground_overlay: Mostrar terreno inadecuado para granjas
+ground_overlay_tooltip: La vista previa marca el terreno inadecuado al colocar una granja.
+keep_cows: Conservar las vacas si muere su granjero
+keep_cows_tooltip: Las vacas sobreviven a la muerte de su granjero.
+hunters_tannery: Permitir que los cazadores recojan piezas de curtidurías
+hunters_tannery_tooltip: Los cazadores pueden recoger piezas almacenadas en curtidurías además de cazar ciervos.
+ai_decorations: Evitar decoraciones apiladas de la IA
+ai_decorations_tooltip: Los señores de la IA colocan decoraciones en casillas libres.
 balance_changes: Cambios de equilibrio
 bugfixes: Correcciones de errores
 fixes: Correcciones
@@ -51,4 +49,5 @@ tags.ai: IA
 tags.economy: Economía
 tags.bugfixes: Correcciones
 tags.interface: Interfaz
-ai_repair: Los señores de la IA reparan sus edificios
+ai_repair: Permitir que los señores de la IA reparen edificios
+doors_group: Puertas bloqueadas

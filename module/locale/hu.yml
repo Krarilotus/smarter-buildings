@@ -1,46 +1,44 @@
-dynamic: Az ajtók elköltöznek, ha elzáródnak
-dynamic_tooltip: A házak, kápolnák, templomok, katedrálisok, kocsma, gyógyszertár, kút, víztartály, piac, istállók, céhek és kutyaketrecek folyamatosan ellenőrzik a bejáratukat. Ha valami eléjük épül vagy a mező elérhetetlenné válik, az ajtó az épület egy szabad oldalára kerül. Korábban csak a lerakáskor választott oldal működött.
-storage: A magtár és a fegyvertár ajtaja is áthelyeződik
-storage_tooltip: A magtár és a fegyvertár ugyanígy ellenőrzi a bejáratát, így az áruk akkor is leszállíthatók, ha egy kapu vagy fal elvágja a régi ajtót a műhelyektől.
-unstuck: Az elakadt munkások másik ajtót próbálnak
-unstuck_tooltip: Ha valaki kilép az épületéből és nem talál utat a céljához — munkás a raktárba, magtárba, fegyvertárba vagy vártoronyhoz, anya gyermekeivel a tábortűzhöz, pap, kocsmáros vagy udvari bolond a körútjára —, visszamegy, és az óramutató járása szerint kipróbálja a következő ajtót, amíg egy nem működik. Ha egyik sem jó, az ajtó a helyén marad.
-button: Javítás gomb minden sérült épületen
-button_tooltip: |-
-  Minden sérült saját épületeden megjelenik a Javítás gomb. A javítás a sérüléssel arányos részébe kerül az épület árának: félig sérült épület féláron javítható. A gombra mutatva látszik a költség és a készleted, mint a tornyoknál (bekapcsolt játéksúgót igényel).
+dynamic: Másik ajtó használata elzáródáskor
+dynamic_tooltip: A munkások másik elérhető ajtót használnak, ha a megszokott bejáratuk el van zárva.
+storage: Magtár- és fegyvertár-bejáratok áthelyezése is
+storage_tooltip: Engedélyezi a magtár és a fegyvertár elzárt bejáratainak áthelyezését.
+unstuck: Ajtónál már elakadt munkások átirányítása
+unstuck_tooltip: Az elzárt bejáratnál már megakadt munkások másik útvonallal próbálkoznak.
+button: Javítás gomb megjelenítése sérült épületeken
+button_tooltip: Jelölj ki egy sérült épületet és kattints a Javítás gombra a paneljén, vagy vidd fölé a kurzort bekapcsolt súgóval a költség megtekintéséhez.
 gold: A javítás aranyba is kerül
-gold_tooltip: Az aranyba kerülő épületek (pl. templomok) javítása az aranyköltség arányos részébe is kerül. Enélkül csak fát és követ von le, mint az alapjáték tornyainál.
-fire_blocks: Égő épület nem javítható
-fire_blocks_tooltip: |-
-  Az égő épület olyan, mintha ellenség lenne a közelben: a Javítás gomb szürke marad, amíg el nem alszik a tűz. Tornyokra és kapukra is érvényes.
+gold_tooltip: Az épületek javítása a szokásos nyersanyagok mellett aranyat is igényel.
+fire_blocks: Javítás tiltása tűz közben
+fire_blocks_tooltip: A tűznek el kell aludnia az épületen, mielőtt megjavítható lenne.
 ai: MI
-ai_tooltip: Minden javítási időköz lejártakor egy MI-lord átnézi az épületeit (tornyokat és kapukat is), és megjavítja a legsérültebbet, ha a minimumánál több aranya van, ott semmi nem ég és nincs közelben ellenség. A hiányzó fát és követ megveszi a piacon. Az AIC-fájlok lordonként megadhatják az időközt és a minimumot a BuildingRepairInterval és BuildingRepairMinimumGold mezőkkel (az aicloader modul szükséges).
+ai_tooltip: Az MI-lordok időnként megjavítják a sérült épületeiket, ha megengedhetik maguknak.
 ai_damage: MI javítási küszöb sérülés alapján (százalék)
 ai_interval: MI javítási időköz (másodperc)
 ai_minimum_gold: MI csak ennyi arany felett javít
-firemen: A tűzoltók megoszlanak több tűz között
-firemen_tooltip: Több tűz esetén a tűzoltó olyan tüzet választ, amelyhez még nem fut másik tűzoltó, ahelyett hogy mind ugyanoda rohannának.
-maces: Az új kovácsműhelyek buzogányt gyártanak
-maces_tooltip: Az újonnan épített kovácsműhely kard helyett buzogánnyal kezd. Továbbra is átválthatod. Alapértelmezés szerint kikapcsolva.
-breed: Az istállók pótolják a lovagok által elvitt lovakat
-breed_tooltip: Amikor egy lovag elvisz egy lovat, az istálló rögtön újat kezd tenyészteni. Korábban a hely üres maradt a lovag haláláig, így egy istálló csak négy lovagot szolgált ki. Kikapcsolása visszaállítja az eredeti időzítőt és istállópanelt.
-stable_panel: Az istállópanel mutatja az élő lovakat és a következőt
-stable_panel_tooltip: A „használatban” szám az istálló lovain lovagló élő lovagokat számlálja, a tornyok életerő-csíkjához hasonló sáv pedig a következő ló készültségét mutatja. Ha mind a négy hely foglalt, a sáv tele van.
+firemen: Tűzoltók szétosztása a tüzek között
+firemen_tooltip: A tűzoltók igyekeznek különálló tüzeket oltani.
+maces: Az új kovácsműhelyek alapértelmezésben buzogányt gyártanak
+maces_tooltip: A kovácsműhely megszokott paneljén válthatsz gyártást.
+breed: Lovagok által elvitt lovak pótlása
+breed_tooltip: Az istállók pótló lovakat tenyésztenek a lovagok által elvitt lovak helyére.
+stable_panel: Lovak és következő pótlás megjelenítése
+stable_panel_tooltip: Jelölj ki egy istállót a lovai és a következő pótlás megtekintéséhez.
 breed_seconds: Egy ló tenyésztési ideje (másodperc)
-slowdown: Az istállók lassabban tenyésztenek, minél több lovuk él
-slowdown_tooltip: Az istálló élő lovai a boxokban álló lovak plusz a lovain ülő lovagok. A normál szám alatt rendes ütemben tenyészt; minden további ló tovább tart az előzőnél egészen a leglassabb időig — a tenyésztés sosem áll le. Lovagok halálával újra felgyorsul.
+slowdown: Lassabb tenyésztés, ha több ló marad életben
+slowdown_tooltip: Az istállók lassabban pótolják a lovakat, amíg több lovuk életben van.
 normal_horses: Élő lovak száma a lassulás előtt
 slowdown_factor: Lassulási szorzó minden további lónál
 slowest_seconds: Leglassabb tenyésztési idő (másodperc)
-dairy_scrub: A sajtüzemek ritkás bozótoson is állhatnak
-dairy_scrub_tooltip: Egy farmnak elegendő termékeny talaj kell, amihez általában csak az oázisfű és a sűrű bozótos számít. A sajtüzemeknél a ritkás bozótos is számít. A búza-, komló- és almafarmok változatlanok.
-ground_overlay: A farmok pirossal jelzik a rossz talajt
-ground_overlay_tooltip: Farm elhelyezésekor minden alatta lévő, nem füves mező (föld, homok, kő, vas stb.) pirosan látszik, mint a sziklák és épületek, így látható, mi akadályozza az építést. A talajigény változatlan marad.
-keep_cows: A tehenek megmaradnak a sajtmester halála után
-keep_cows_tooltip: Ha a sajtmestert megölik, a tehenei a farmon maradnak ahelyett, hogy eltűnnének, így a tímárok továbbra is elvihetik őket, és az új gazda is ott találja őket. A farm lebontásakor vagy leállításakor továbbra is eltűnnek.
-hunters_tannery: A vadászok tetemeket hoznak a tímárműhelyekből, ha elfogy a vad
-hunters_tannery_tooltip: Minden megnyúzott tehén tetemet hagy a tímárműhelynél. Ha nincs több szarvas a térképen, a tétlen vadász elmegy ura egy tetemekkel teli tímárműhelyéhez, elvisz párat a kunyhójába, hússá dolgozza (egy szarvasnyit ad), és elviszi a magtárba.
-ai_decorations: Nincs több MI-zászló-, parázstartó- vagy karóra tűzött fej halmozás
-ai_decorations_tooltip: Az MI fix helyekre teszi lordja zászlóit (vagy karóra tűzött fejeit) és parázstartóit, és pótolja a hiányzókat. Mivel csak a legfelső objektumot nézte, bármi más — vártorony zászlaja, porfelhő, varjú — végtelen halmozást okozott. Most mindent lát a mezőn, és eltakarítja a felhalmozódott vagy levegőben maradt díszítéseket.
+dairy_scrub: Tejfarmok engedélyezése ritkás bozóton
+dairy_scrub_tooltip: A tejfarmok ritkás bozótos talajra is lehelyezhetők.
+ground_overlay: Alkalmatlan farmtalaj jelzése
+ground_overlay_tooltip: Az építési előnézet jelöli az alkalmatlan talajt farm elhelyezésekor.
+keep_cows: Tehenek megtartása a gazda halála után
+keep_cows_tooltip: A tehenek túlélik a gazdájuk elvesztését.
+hunters_tannery: A vadászok elvihessék a tetemeket a tímárműhelyekből
+hunters_tannery_tooltip: A vadászok a szarvasvadászat mellett a tímárműhelyekben tárolt tetemeket is begyűjthetik.
+ai_decorations: Egymásra rakott MI-díszítések megakadályozása
+ai_decorations_tooltip: Az MI-lordok szabad mezőkre helyezik a díszítéseket.
 balance_changes: Egyensúlymódosítások
 bugfixes: Hibajavítások
 fixes: Javítások
@@ -51,4 +49,5 @@ tags.ai: MI
 tags.economy: Gazdaság
 tags.bugfixes: Hibajavítások
 tags.interface: Felület
-ai_repair: Az MI-lordok megjavítják az épületeiket
+ai_repair: Az MI-lordok javíthassanak épületeket
+doors_group: Elzárt ajtók

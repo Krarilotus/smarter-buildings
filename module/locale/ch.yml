@@ -1,46 +1,44 @@
-dynamic: 建筑出入口受阻时自动改道
-dynamic_tooltip: 民房、礼拜堂、教堂、大教堂、酒馆、药房、水井、水缸、市场、马厩、公会和猎犬笼会持续检查自身入口。一旦门前被堵或无法到达，入口会自动转移到建筑空闲的一侧。此前建筑只会固定使用放置时选定的那一侧。
-storage: 粮仓和军械库入口同样自动改道
-storage_tooltip: 粮仓和军械库以同样方式检查入口，即便城门或城墙切断了旧入口与作坊之间的道路，物资仍能正常运送。
-unstuck: 受阻工人会尝试建筑的其他出口
-unstuck_tooltip: 当有人走出建筑却找不到通往目的地的路时——前往储藏区、粮仓、军械库或主堡的工人，前往篝火的母子，外出巡行的牧师、酒馆老板或小丑——他们会退回建筑并按顺时针依次尝试下一侧出口，直到找到通路。若四周皆不通，入口保持不变。
-button: 所有受损建筑均显示修复按钮
-button_tooltip: |-
-  你的任意受损建筑都会显示修复按钮。修复费用按受损比例折算：损毁一半则花费原价的一半。鼠标悬停按钮可像塔楼一样查看所需资源与当前库存（需开启游戏帮助提示）。
-gold: 修复同样消耗金币
-gold_tooltip: 造价包含金币的建筑（如教堂）修复时同样按比例收取金币。关闭时像原版塔楼一样只消耗木材和石料。
-fire_blocks: 着火期间禁止修复建筑
-fire_blocks_tooltip: |-
-  着火的建筑视同附近有敌军：灭火前修复按钮呈灰色不可用。对塔楼和城门同样生效。
+dynamic: 入口受阻时改走另一扇门
+dynamic_tooltip: 常用入口被堵住时，工人会改用另一处可通行的门。
+storage: 同时允许调整粮仓和军械库入口
+storage_tooltip: 粮仓和军械库的入口受阻时，也允许改换入口位置。
+unstuck: 为已卡在门口的工人重新寻路
+unstuck_tooltip: 已经卡在受阻入口处的工人会尝试改走其他路线。
+button: 在受损建筑上显示“修复”按钮
+button_tooltip: 选中受损建筑后点击面板中的“修复”；开启游戏提示时悬停在“修复”上可查看花费。
+gold: 修复建筑同时消耗金币
+gold_tooltip: 修复建筑除了常规材料外，还需要消耗金币。
+fire_blocks: 起火时禁止修复建筑
+fire_blocks_tooltip: 建筑必须等火扑灭后才能进行修复。
 ai: AI
-ai_tooltip: 每当达到修复间隔，AI 领主会检查名下所有建筑（含塔楼和城门）并修复受损最重的一座，前提是其金币高于最低门槛、该建筑未着火且附近无敌军。缺少的木材与石料会从市场购买。AI 角色文件可通过 AIC 字段 BuildingRepairInterval 和 BuildingRepairMinimumGold 为各领主单独设定间隔和金币下限（需搭配 aicloader 模块）。
+ai_tooltip: 资金充足时，AI 领主会定期修复受损建筑。
 ai_damage: AI 触发修复的最低受损度（百分比）
 ai_interval: AI 修复间隔（秒）
 ai_minimum_gold: AI 执行修复所需的最低金币
-firemen: 救火员分散扑救多处火情
-firemen_tooltip: 同时出现多处火灾时，救火员会优先选择尚无其他救火员奔赴的火场，不再扎堆冲向同一处。
-maces: 新建铁匠铺默认生产链锤
-maces_tooltip: 新建造的铁匠铺默认起始生产链锤而非剑，你仍可手动切换。默认关闭。
-breed: 马厩立即繁育被骑士牵走的战马
-breed_tooltip: 骑士牵走战马后，马厩立刻开始繁育新马。此前马位必须等到该骑士阵亡才重新补充，导致一座马厩终生只能供养四名骑士。关闭后恢复原版繁育计时器与马厩面板。
-stable_panel: 马厩面板显示存活战马数与下一匹进度
-stable_panel_tooltip: 马厩的「使用中」数值统计骑乘本马厩战马的存活骑士数，并新增类似塔楼血条的进度条显示下一匹战马的繁育进度；四个马位皆满时进度条满格。
+firemen: 让消防员分散扑救多处火情
+firemen_tooltip: 消防员会尽量分头扑救不同的起火点。
+maces: 新建铁匠铺默认打造链锤
+maces_tooltip: 仍可在铁匠铺的常规面板中切换生产品类。
+breed: 补充被骑士骑走的战马
+breed_tooltip: 马厩会繁育新马以补充被骑士领走的战马。
+stable_panel: 显示现有马匹与下一匹补栏进度
+stable_panel_tooltip: 选中马厩即可查看当前马匹数量与下一匹战马的进度。
 breed_seconds: 繁育一匹战马所需时间（秒）
-slowdown: 存活战马越多，马厩繁育越慢
-slowdown_tooltip: 马厩的存活战马包括厩内马匹及骑乘其战马的存活骑士。低于常规数量时按正常速度繁育；每超出一名骑士耗时递增直至最慢上限，但永不停止繁育。骑士阵亡后繁育会重新加快。
+slowdown: 存活战马越多，繁育越慢
+slowdown_tooltip: 马厩出产的战马存活得越多，补充新马耗时越长。
 normal_horses: 繁育减速前的存活战马数
 slowdown_factor: 每多一匹马的减速倍率
 slowest_seconds: 最慢繁育时间（秒）
-dairy_scrub: 奶牛场可建在稀疏灌木地上
-dairy_scrub_tooltip: 农场需要足够的肥沃土地，原版只认绿洲草地和茂密灌木。本选项允许奶牛场也利用稀疏灌木地；小麦、啤酒花和苹果园不变。
-ground_overlay: 放置农场时用红色标出不可用土地
-ground_overlay_tooltip: 放置农场时，下方所有非草地格子（泥土、沙地、石块、铁矿等）都会像岩石和建筑一样显示为红色，方便看清阻挡位置。农场对土地的要求本身不变。
-keep_cows: 奶牛场工人死亡时保留奶牛
-keep_cows_tooltip: 奶牛场工人被杀后，奶牛不再随之消失，而是留在场内供皮革工人照常牵走，新工人到岗后也能直接使用。拆除或停工农场时奶牛仍会消失。
-hunters_tannery: 鹿群耗尽后猎人从皮革作坊取兽尸
-hunters_tannery_tooltip: 皮革工人每剥一头牛都会在作坊留下兽尸。地图上不再有鹿时，空闲猎人会前往己方领主存有兽尸的皮革作坊取尸回屋，宰割成肉（产量等同于一头鹿）并送入粮仓。
-ai_decorations: 防止 AI 旗帜、火盆或长矛人头重复堆叠
-ai_decorations_tooltip: AI 会在城堡固定点位摆放旗帜（或长矛人头）和火盆，发现缺失就会补放。原版只检查格子最顶层物体，导致主堡旗帜、灰尘或乌鸦触发无限堆叠。现在 AI 会检查格内所有物体，并清理堆叠或悬空的己方装饰。
+dairy_scrub: 允许在稀疏灌木地上建造奶牛场
+dairy_scrub_tooltip: 奶牛场可以建在稀疏灌木地形上。
+ground_overlay: 显示不适合建农场的地块
+ground_overlay_tooltip: 摆放农场时，预览会标出无法耕作的地形。
+keep_cows: 农夫阵亡后保留奶牛
+keep_cows_tooltip: 奶牛在所属农夫死亡后仍会存活。
+hunters_tannery: 允许猎人从制革厂收取兽皮原料
+hunters_tannery_tooltip: 猎人除了猎鹿外，还可从制革厂搬运存放的猎物。
+ai_decorations: 防止 AI 叠放装饰物
+ai_decorations_tooltip: AI 领主只会在空闲地块上放置装饰物。
 balance_changes: 平衡调整
 bugfixes: 错误修复
 fixes: 修正
@@ -51,4 +49,5 @@ tags.ai: AI
 tags.economy: 经济
 tags.bugfixes: 错误修复
 tags.interface: 界面
-ai_repair: AI 领主自动修复建筑
+ai_repair: 允许 AI 领主修复建筑
+doors_group: 受阻的建筑入口

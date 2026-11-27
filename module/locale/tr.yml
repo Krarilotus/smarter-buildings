@@ -1,46 +1,44 @@
-dynamic: Kapılar tıkandığında otomatik yer değiştirir
-dynamic_tooltip: Kulübeler, şapeller, kiliseler, katedraller, han, eczane, kuyu, su deposu, pazar, ahırlar, loncalar ve köpek kafesleri kapılarını sürekli kontrol eder. Önüne bir şey inşa edilir veya nokta ulaşılmaz olursa kapı binanın boş bir kenarına taşınır. Eskiden yalnızca binayı koyarken seçilen kenar kullanılırdı.
-storage: Ambar ve cephanelik kapıları da yer değiştirir
-storage_tooltip: Ambar ve cephanelik kapılarını aynı şekilde kontrol eder; böylece bir kapı veya sur eski girişi atölyelerden kesse bile mallar teslim edilmeye devam eder.
-unstuck: Takılan işçiler başka bir kapı dener
-unstuck_tooltip: Birisi binasından çıkıp gideceği yere yol bulamadığında — depoya, ambara, cephaneliğe veya iç kaleye giden işçi, kamp ateşine giden anne ve çocukları, turuna çıkan rahip, hancı veya soytarı — içeri dönüp bir yol bulunana kadar saat yönünde binanın diğer kapılarını dener. Hiçbiri çalışmazsa kapı yerinde kalır.
-button: Her hasarlı binada Onar düğmesi
-button_tooltip: |-
-  Hasar görmüş her binanda Onar düğmesi görünür. Onarım, binanın hasar oranına denk düşen maliyetine mal olur: yarı yıkılmış bina yarı fiyatına onarılır. Düğmenin üzerine gelmek kulelerdeki gibi onarım maliyetini ve elindekileri gösterir (oyunun yardım metinlerinin açık olmasını gerektirir).
+dynamic: Kapı tıkalıysa başka bir kapı kullan
+dynamic_tooltip: İşçiler alışıldık kapıları tıkalı olduğunda erişilebilir başka bir kapıyı kullanır.
+storage: Ambar ve cephanelik kapılarını da taşı
+storage_tooltip: Tıkalı olduğunda ambar ve cephanelik girişlerinin yer değiştirmesine izin verir.
+unstuck: Kapıda takılı kalmış işçileri yeniden yönlendir
+unstuck_tooltip: Tıkalı bir girişte zaten takılı kalmış işçiler başka bir rota dener.
+button: Hasarlı binalarda Onar düğmesini göster
+button_tooltip: Hasarlı bir binayı seçip panelindeki Onar’a tıklayın ya da maliyeti görmek için oyun yardımı açıkken Onar’ın üzerine gelin.
 gold: Onarımlar altın da gerektirir
-gold_tooltip: Altın isteyen binalar (örneğin kiliseler) onarılırken de o oranda altın ister. Bu kapalıysa normal oyundaki kuleler gibi yalnızca odun ve taş alınır.
-fire_blocks: Bina yanarken onarım yapılamaz
-fire_blocks_tooltip: |-
-  Yanan bir bina yakında düşman varmış gibi sayılır: yangın sönene kadar Onar düğmesi devre dışı kalır. Kuleler ve kapılar için de geçerlidir.
+gold_tooltip: Bina onarımları normal malzemelerin yanında altın da ister.
+fire_blocks: Yanarken onarımı engelle
+fire_blocks_tooltip: Onarmadan önce binadaki yangının sönmesi gerekir.
 ai: Yapay zekâ
-ai_tooltip: Her onarım aralığı dolduğunda yapay zekâ lordu binalarını (kuleler ve kapılar dâhil) gözden geçirir; altını alt sınırının üzerindeyse, orada yangın yoksa ve yakında düşman yoksa en hasarlı binayı onarır. Eksik odun ve taşı pazardan alır. Yapay zekâ karakter dosyaları BuildingRepairInterval ve BuildingRepairMinimumGold AIC alanlarıyla lord başına aralık ve alt sınır belirleyebilir (aicloader modülü gerekir).
+ai_tooltip: Yapay zekâ lordları karşılayabildiklerinde hasarlı binaları düzenli olarak onarır.
 ai_damage: Yapay zekânın onarıma başlama hasarı (yüzde)
 ai_interval: Yapay zekâ onarım aralığı (saniye)
 ai_minimum_gold: Yapay zekâ yalnızca bu altından fazlası varken onarır
-firemen: İtfaiyeciler birden fazla yangına dağılır
-firemen_tooltip: Birden çok yangın çıktığında bir itfaiyeci, hepsi aynı yangına koşmak yerine başka bir itfaiyecinin henüz gitmediği yangını seçer.
-maces: Yeni demirciler gürz üretir
-maces_tooltip: Yeni kurulan demirci atölyesi kılıç yerine gürz ile başlar. Yine de değiştirebilirsin. Varsayılan olarak kapalı.
-breed: Ahırlar şövalyelerin aldığı atların yenisini yetiştirir
-breed_tooltip: Bir şövalye at aldığında ahır hemen yeni bir at yetiştirmeye başlar. Eskiden o şövalye ölene kadar bölme boş kalırdı ve bir ahır yalnızca dört şövalyeye yeterdi. Kapatıldığında özgün yetiştirme süresi ve ahır paneli geri döner.
-stable_panel: Ahır paneli yaşayan atları ve sonraki atı gösterir
-stable_panel_tooltip: Ahırın «kullanımda» sayısı bu ahırın atlarından birine binen yaşayan şövalyeleri sayar; kulelerin can çubuğuna benzer bir çubuk ise sonraki atın ilerlemesini gösterir. Dört bölme de doluyken çubuk doludur.
+firemen: İtfaiyecileri yangınlara dağıt
+firemen_tooltip: İtfaiyeciler ayrı yangınları söndürmeye çalışır.
+maces: Yeni demirciler varsayılan olarak gürz üretir
+maces_tooltip: Üretimi değiştirmek için demircinin normal panelini kullanın.
+breed: Şövalyelerin aldığı atları yenile
+breed_tooltip: Ahırlar, şövalyelerin aldığı atların yerine yenilerini yetiştirir.
+stable_panel: Atları ve sıradaki yeni atı göster
+stable_panel_tooltip: Atlarını ve sıradaki yeni atı görmek için bir ahır seçin.
 breed_seconds: Bir at yetiştirme süresi (saniye)
-slowdown: Yaşayan at arttıkça ahırlar daha yavaş yetiştirir
-slowdown_tooltip: Bir ahırın yaşayan atları bölmelerindeki atlar ile atlarına binen şövalyelerin toplamıdır. Normal sayının altındayken normal sürede yetişir; bundan sonraki her at bir öncekinden daha uzun sürer ve en yavaş sürede sabitlenir — ahır yetiştirmeyi asla bırakmaz. Şövalyeler ölünce yeniden hızlanır.
+slowdown: Daha fazla at hayattayken yetiştirmeyi yavaşlat
+slowdown_tooltip: Ahırların daha fazla atı hayatta kaldıkça yeni at yetiştirmesi daha uzun sürer.
 normal_horses: Yavaşlamadan önceki yaşayan at sayısı
 slowdown_factor: Her ek at için yavaşlama çarpanı
 slowest_seconds: En yavaş yetiştirme süresi (saniye)
-dairy_scrub: Süt çiftlikleri seyrek çalılığa kurulabilir
-dairy_scrub_tooltip: Bir çiftlik yeterince verimli zemin gerektirir ve normalde yalnızca vaha otu ile sık çalılık sayılır. Süt çiftlikleri için seyrek çalılık da sayılır. Buğday, şerbetçiotu ve elma çiftlikleri değişmez.
-ground_overlay: Çiftlikler uygunsuz zemini kırmızı gösterir
-ground_overlay_tooltip: Çiftlik yerleştirirken altındaki çim olmayan her kare (toprak, kum, taş, demir vb.) kayalar ve diğer binalar gibi kırmızı görünür; böylece çiftliği neyin engellediğini görürsün. Çiftliklerin zemin gereksinimi değişmez.
-keep_cows: Sütçü öldüğünde inekler kalır
-keep_cows_tooltip: Bir sütçü öldürüldüğünde inekleri kaybolmak yerine çiftlikte kalır; böylece tabaklar onları almaya devam eder ve yeni çiftçi onları orada bulur. Çiftlik yıkıldığında veya uyutulduğunda inekler yine kaybolur.
-hunters_tannery: Geyikler bitince avcılar tabakhanelerden leş alır
-hunters_tannery_tooltip: Tabakçının yüzdüğü her inek tabakhanede bir leş bırakır. Haritada geyik kalmadığında boşta bir avcı kendi lordunun leş bulunan tabakhanesine gider, kulübesine taşır, ete işler (bir geyik kadar) ve ambara götürür.
-ai_decorations: Yapay zekâ bayrak, mangal ve kazıkta kafa yığınlarını önle
-ai_decorations_tooltip: Yapay zekâ kalesindeki sabit noktalara bayrak (veya kazıkta kafa) ile mangal koyar ve eksik gördükçe yenisini ekler. Eskiden yalnızca en üstteki nesneye baktığı için iç kale bayrağı, toz veya karga yüzünden aynı yere sonsuza dek yığın oluşturuyordu. Artık o noktadaki her şeyi görür ve üst üste binen veya boşlukta kalan kendi süslemelerini temizler.
+dairy_scrub: Seyrek çalılıkta mandıraya izin ver
+dairy_scrub_tooltip: Mandıralar seyrek çalılık araziye yerleştirilebilir.
+ground_overlay: Çiftlik için uygun olmayan zemini göster
+ground_overlay_tooltip: Bir çiftlik yerleştirirken önizleme uygun olmayan zemini işaretler.
+keep_cows: Çiftçisi ölünce inekleri koru
+keep_cows_tooltip: İnekler çiftçilerini kaybettiklerinde hayatta kalır.
+hunters_tannery: Avcılar tabakhanelerden karkas alabilsin
+hunters_tannery_tooltip: Avcılar geyik avlamanın yanı sıra tabakhanelerde depolanan karkasları da toplayabilir.
+ai_decorations: Üst üste binen yapay zekâ süslemelerini önle
+ai_decorations_tooltip: Yapay zekâ lordları süslemeleri boş karelere yerleştirir.
 balance_changes: Denge değişiklikleri
 bugfixes: Hata düzeltmeleri
 fixes: Düzeltmeler
@@ -51,4 +49,5 @@ tags.ai: Yapay zekâ
 tags.economy: Ekonomi
 tags.bugfixes: Hata düzeltmeleri
 tags.interface: Arayüz
-ai_repair: Yapay zekâ lordları binalarını onarır
+ai_repair: Yapay zekâ lordları binaları onarsın
+doors_group: Tıkalı kapılar

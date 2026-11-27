@@ -12,23 +12,13 @@ gold_tooltip: Az aranyba kerülő épületek (pl. templomok) javítása az arany
 fire_blocks: Égő épület nem javítható
 fire_blocks_tooltip: |-
   Az égő épület olyan, mintha ellenség lenne a közelben: a Javítás gomb szürke marad, amíg el nem alszik a tűz. Tornyokra és kapukra is érvényes.
-repair_x: Gomb vízszintes pozíciója
-repair_x_tooltip: |-
-  Hol helyezkedik el a Javítás gomb az épület paneljén, a bal széltől mérve. A tornyoknál 340. A saját gombokkal rendelkező panelek eltolják: magtár 130-cal balra, kocsma 50-nel, mérnök- és alagútásócéh 80-nal jobbra; a kaszárnyán középen a lőrések alatt, a zsoldostáboron középen alul van.
-repair_y: Gomb függőleges pozíciója
-repair_y_tooltip: Hol helyezkedik el a Javítás gomb az épület paneljén, felülről mérve. A tornyoknál 466.
 ai: MI
 ai_tooltip: Minden javítási időköz lejártakor egy MI-lord átnézi az épületeit (tornyokat és kapukat is), és megjavítja a legsérültebbet, ha a minimumánál több aranya van, ott semmi nem ég és nincs közelben ellenség. A hiányzó fát és követ megveszi a piacon. Az AIC-fájlok lordonként megadhatják az időközt és a minimumot a BuildingRepairInterval és BuildingRepairMinimumGold mezőkkel (az aicloader modul szükséges).
 ai_damage: MI javítási küszöb sérülés alapján (százalék)
-ai_damage_tooltip: Egy MI-lord csak olyan épületet javít meg, amely legalább ekkora részét elvesztette az életerejének.
 ai_interval: MI javítási időköz (másodperc)
-ai_interval_tooltip: Mennyit vár egy MI-lord két javítás között normál sebességen. A BuildingRepairInterval AIC-mező lordonként felülírja.
 ai_minimum_gold: MI csak ennyi arany felett javít
-ai_minimum_gold_tooltip: Egy MI-lord csak akkor javít, ha kincstárában ennél több arany van. A BuildingRepairMinimumGold AIC-mező lordonként felülírja.
 firemen: A tűzoltók megoszlanak több tűz között
 firemen_tooltip: Több tűz esetén a tűzoltó olyan tüzet választ, amelyhez még nem fut másik tűzoltó, ahelyett hogy mind ugyanoda rohannának.
-firemen_tiles: Mennyire kerülik a tűzoltók a már oltott tüzet
-firemen_tiles_tooltip: Minden olyan tűzoltó, aki már úton van egy tűzhöz, ennyi mezővel távolabbinak mutatja azt a következő tűzoltó számára.
 maces: Az új kovácsműhelyek buzogányt gyártanak
 maces_tooltip: Az újonnan épített kovácsműhely kard helyett buzogánnyal kezd. Továbbra is átválthatod. Alapértelmezés szerint kikapcsolva.
 breed: Az istállók pótolják a lovagok által elvitt lovakat
@@ -36,16 +26,11 @@ breed_tooltip: Amikor egy lovag elvisz egy lovat, az istálló rögtön újat ke
 stable_panel: Az istállópanel mutatja az élő lovakat és a következőt
 stable_panel_tooltip: A „használatban” szám az istálló lovain lovagló élő lovagokat számlálja, a tornyok életerő-csíkjához hasonló sáv pedig a következő ló készültségét mutatja. Ha mind a négy hely foglalt, a sáv tele van.
 breed_seconds: Egy ló tenyésztési ideje (másodperc)
-breed_seconds_tooltip: Mennyi ideig tart egy új ló tenyésztése normál sebességen, amíg kevés lova él. A 0 megtartja a játék saját idejét (kb. 14 másodperc).
 slowdown: Az istállók lassabban tenyésztenek, minél több lovuk él
 slowdown_tooltip: Az istálló élő lovai a boxokban álló lovak plusz a lovain ülő lovagok. A normál szám alatt rendes ütemben tenyészt; minden további ló tovább tart az előzőnél egészen a leglassabb időig — a tenyésztés sosem áll le. Lovagok halálával újra felgyorsul.
 normal_horses: Élő lovak száma a lassulás előtt
-normal_horses_tooltip: Hány élő lova lehet egy istállónak, mielőtt a tenyésztés lelassul. 4 esetén az első négy normál sebességgel jön, az ötödik lesz az első lassabb.
 slowdown_factor: Lassulási szorzó minden további lónál
-slowdown_factor_tooltip: Minden a normál szám feletti ló ennyiszer tovább tart az előzőnél. 3 esetén az ötödik háromszor, a hatodik kilencszer annyi ideig tart stb.
 slowest_seconds: Leglassabb tenyésztési idő (másodperc)
-slowest_seconds_tooltip: |-
-  A tenyésztés normál sebességen sosem lesz lassabb ennél: sok élő lóval is időről időre tenyészt egy újat.
 dairy_scrub: A sajtüzemek ritkás bozótoson is állhatnak
 dairy_scrub_tooltip: Egy farmnak elegendő termékeny talaj kell, amihez általában csak az oázisfű és a sűrű bozótos számít. A sajtüzemeknél a ritkás bozótos is számít. A búza-, komló- és almafarmok változatlanok.
 ground_overlay: A farmok pirossal jelzik a rossz talajt
@@ -54,15 +39,9 @@ keep_cows: A tehenek megmaradnak a sajtmester halála után
 keep_cows_tooltip: Ha a sajtmestert megölik, a tehenei a farmon maradnak ahelyett, hogy eltűnnének, így a tímárok továbbra is elvihetik őket, és az új gazda is ott találja őket. A farm lebontásakor vagy leállításakor továbbra is eltűnnek.
 hunters_tannery: A vadászok tetemeket hoznak a tímárműhelyekből, ha elfogy a vad
 hunters_tannery_tooltip: Minden megnyúzott tehén tetemet hagy a tímárműhelynél. Ha nincs több szarvas a térképen, a tétlen vadász elmegy ura egy tetemekkel teli tímárműhelyéhez, elvisz párat a kunyhójába, hússá dolgozza (egy szarvasnyit ad), és elviszi a magtárba.
-hunters_chance: Esély a tímárműhely választására, amíg van szarvas (százalék)
-hunters_chance_tooltip: Amíg még vannak szarvasok, az elinduló vadász ilyen eséllyel megy vadászat helyett a tetemekkel teli tímárműhelyhez. Szarvasok nélkül mindig oda megy.
-hunters_carry: Egy vadász által egyszerre vitt tetemek
-hunters_carry_tooltip: Hány tetemet hoz el egy vadász egy fordulóval a tímárműhelyből.
-hunters_stored: Egy tímárműhelyben tárolt tetemek
-hunters_stored_tooltip: Legfeljebb hány tetemet őriz meg egy tímárműhely a vadászoknak. A további tehenek nem hagynak tetemet.
 ai_decorations: Nincs több MI-zászló-, parázstartó- vagy karóra tűzött fej halmozás
 ai_decorations_tooltip: Az MI fix helyekre teszi lordja zászlóit (vagy karóra tűzött fejeit) és parázstartóit, és pótolja a hiányzókat. Mivel csak a legfelső objektumot nézte, bármi más — vártorony zászlaja, porfelhő, varjú — végtelen halmozást okozott. Most mindent lát a mezőn, és eltakarítja a felhalmozódott vagy levegőben maradt díszítéseket.
-balance_changes: Egyensúly-módosítások
+balance_changes: Egyensúlymódosítások
 bugfixes: Hibajavítások
 fixes: Javítások
 improvements: Fejlesztések

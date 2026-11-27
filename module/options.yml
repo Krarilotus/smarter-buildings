@@ -1,42 +1,32 @@
 options:
-- url: smarter-buildings.doors.dynamic
-  name: smarter-buildings-doors-dynamic
-  display: UCP2Switch
-  contents:
-    type: boolean
-    value: false
-  header: '{{dynamic}}'
-  text: '{{dynamic_tooltip}}'
-  category:
-  - '{{bugfixes}}'
-- url: smarter-buildings.doors.storage
-  name: smarter-buildings-doors-storage
-  display: UCP2Switch
-  contents:
-    type: boolean
-    value: false
-  header: '{{storage}}'
-  text: '{{storage_tooltip}}'
-  category:
-  - '{{bugfixes}}'
-- url: smarter-buildings.doors.unstuck
-  name: smarter-buildings-doors-unstuck
-  display: UCP2Switch
-  contents:
-    type: boolean
-    value: false
-  header: '{{unstuck}}'
-  text: '{{unstuck_tooltip}}'
-  category:
-  - '{{bugfixes}}'
-- url: smarter-buildings.repair.fire_blocks
-  name: smarter-buildings-repair-fire-blocks
-  display: UCP2Switch
-  contents:
-    type: boolean
-    value: false
-  header: '{{fire_blocks}}'
-  text: '{{fire_blocks_tooltip}}'
+- display: GroupBox
+  hasHeader: true
+  header: '{{doors_group}}'
+  children:
+  - url: smarter-buildings.doors.dynamic
+    name: smarter-buildings-doors-dynamic
+    display: UCP2Switch
+    contents:
+      type: boolean
+      value: false
+    header: '{{dynamic}}'
+    text: '{{dynamic_tooltip}}'
+  - url: smarter-buildings.doors.storage
+    name: smarter-buildings-doors-storage
+    display: UCP2Switch
+    contents:
+      type: boolean
+      value: false
+    header: '{{storage}}'
+    text: '{{storage_tooltip}}'
+  - url: smarter-buildings.doors.unstuck
+    name: smarter-buildings-doors-unstuck
+    display: UCP2Switch
+    contents:
+      type: boolean
+      value: false
+    header: '{{unstuck}}'
+    text: '{{unstuck_tooltip}}'
   category:
   - '{{bugfixes}}'
 - url: smarter-buildings.firemen.spread
@@ -49,24 +39,6 @@ options:
   text: '{{firemen_tooltip}}'
   category:
   - '{{bugfixes}}'
-  children:
-  - display: GroupBox
-    hasHeader: true
-    accordion:
-      enabled: true
-    header: '{{firemen_tiles}}'
-    text: '{{firemen_tiles_tooltip}}'
-    children:
-    - url: smarter-buildings.firemen.tiles
-      name: smarter-buildings-firemen-tiles
-      text: '{{firemen_tiles}}'
-      display: Number
-      contents:
-        type: integer
-        value: 20
-        min: 1
-        max: 200
-        step: 1
 - url: smarter-buildings.farms.keep_cows
   name: smarter-buildings-farms-keep-cows
   display: UCP2Switch
@@ -87,41 +59,6 @@ options:
   text: '{{button_tooltip}}'
   category:
   - '{{qol}}'
-  children:
-  - display: GroupBox
-    hasHeader: true
-    accordion:
-      enabled: true
-    header: '{{repair_x}}'
-    text: '{{repair_x_tooltip}}'
-    children:
-    - url: smarter-buildings.repair.x
-      name: smarter-buildings-repair-x
-      text: '{{repair_x}}'
-      display: Number
-      contents:
-        type: integer
-        value: 340
-        min: 0
-        max: 800
-        step: 1
-  - display: GroupBox
-    hasHeader: true
-    accordion:
-      enabled: true
-    header: '{{repair_y}}'
-    text: '{{repair_y_tooltip}}'
-    children:
-    - url: smarter-buildings.repair.y
-      name: smarter-buildings-repair-y
-      text: '{{repair_y}}'
-      display: Number
-      contents:
-        type: integer
-        value: 466
-        min: 0
-        max: 600
-        step: 1
 - url: smarter-buildings.stables.panel
   name: smarter-buildings-stables-panel
   display: UCP2Switch
@@ -142,6 +79,26 @@ options:
   text: '{{ground_overlay_tooltip}}'
   category:
   - '{{qol}}'
+- url: smarter-buildings.blacksmith.maces
+  name: smarter-buildings-blacksmith-maces
+  display: UCP2Switch
+  contents:
+    type: boolean
+    value: false
+  header: '{{maces}}'
+  text: '{{maces_tooltip}}'
+  category:
+  - '{{qol}}'
+- url: smarter-buildings.repair.fire_blocks
+  name: smarter-buildings-repair-fire-blocks
+  display: UCP2Switch
+  contents:
+    type: boolean
+    value: false
+  header: '{{fire_blocks}}'
+  text: '{{fire_blocks_tooltip}}'
+  category:
+  - '{{balance_changes}}'
 - url: smarter-buildings.repair.gold
   name: smarter-buildings-repair-gold
   display: UCP2Switch
@@ -152,16 +109,6 @@ options:
   text: '{{gold_tooltip}}'
   category:
   - '{{balance_changes}}'
-- url: smarter-buildings.blacksmith.maces
-  name: smarter-buildings-blacksmith-maces
-  display: UCP2Switch
-  contents:
-    type: boolean
-    value: false
-  header: '{{maces}}'
-  text: '{{maces_tooltip}}'
-  category:
-  - '{{balance_changes}}'
 - url: smarter-buildings.stables.breed
   name: smarter-buildings-stables-breed
   display: UCP2Switch
@@ -170,26 +117,7 @@ options:
     value: false
   header: '{{breed}}'
   text: '{{breed_tooltip}}'
-  category:
-  - '{{balance_changes}}'
   children:
-  - display: GroupBox
-    hasHeader: true
-    accordion:
-      enabled: true
-    header: '{{breed_seconds}}'
-    text: '{{breed_seconds_tooltip}}'
-    children:
-    - url: smarter-buildings.stables.breed_seconds
-      name: smarter-buildings-stables-breed-seconds
-      text: '{{breed_seconds}}'
-      display: Number
-      contents:
-        type: integer
-        value: 0
-        min: 0
-        max: 3600
-        step: 5
   - url: smarter-buildings.stables.slowdown
     name: smarter-buildings-stables-slowdown
     display: UCP2Switch
@@ -198,58 +126,8 @@ options:
       value: false
     header: '{{slowdown}}'
     text: '{{slowdown_tooltip}}'
-    children:
-    - display: GroupBox
-      hasHeader: true
-      accordion:
-        enabled: true
-      header: '{{normal_horses}}'
-      text: '{{normal_horses_tooltip}}'
-      children:
-      - url: smarter-buildings.stables.normal_horses
-        name: smarter-buildings-stables-normal-horses
-        text: '{{normal_horses}}'
-        display: Number
-        contents:
-          type: integer
-          value: 4
-          min: 1
-          max: 100
-          step: 1
-    - display: GroupBox
-      hasHeader: true
-      accordion:
-        enabled: true
-      header: '{{slowdown_factor}}'
-      text: '{{slowdown_factor_tooltip}}'
-      children:
-      - url: smarter-buildings.stables.slowdown_factor
-        name: smarter-buildings-stables-slowdown-factor
-        text: '{{slowdown_factor}}'
-        display: Number
-        contents:
-          type: integer
-          value: 3
-          min: 1
-          max: 10
-          step: 1
-    - display: GroupBox
-      hasHeader: true
-      accordion:
-        enabled: true
-      header: '{{slowest_seconds}}'
-      text: '{{slowest_seconds_tooltip}}'
-      children:
-      - url: smarter-buildings.stables.slowest_seconds
-        name: smarter-buildings-stables-slowest-seconds
-        text: '{{slowest_seconds}}'
-        display: Number
-        contents:
-          type: integer
-          value: 600
-          min: 1
-          max: 7200
-          step: 30
+  category:
+  - '{{balance_changes}}'
 - url: smarter-buildings.farms.dairy_scrub
   name: smarter-buildings-farms-dairy-scrub
   display: UCP2Switch
@@ -270,58 +148,6 @@ options:
   text: '{{hunters_tannery_tooltip}}'
   category:
   - '{{balance_changes}}'
-  children:
-  - display: GroupBox
-    hasHeader: true
-    accordion:
-      enabled: true
-    header: '{{hunters_chance}}'
-    text: '{{hunters_chance_tooltip}}'
-    children:
-    - url: smarter-buildings.hunters.chance
-      name: smarter-buildings-hunters-chance
-      text: '{{hunters_chance}}'
-      display: Number
-      contents:
-        type: integer
-        value: 50
-        min: 0
-        max: 100
-        step: 5
-  - display: GroupBox
-    hasHeader: true
-    accordion:
-      enabled: true
-    header: '{{hunters_carry}}'
-    text: '{{hunters_carry_tooltip}}'
-    children:
-    - url: smarter-buildings.hunters.carry
-      name: smarter-buildings-hunters-carry
-      text: '{{hunters_carry}}'
-      display: Number
-      contents:
-        type: integer
-        value: 2
-        min: 1
-        max: 10
-        step: 1
-  - display: GroupBox
-    hasHeader: true
-    accordion:
-      enabled: true
-    header: '{{hunters_stored}}'
-    text: '{{hunters_stored_tooltip}}'
-    children:
-    - url: smarter-buildings.hunters.stored
-      name: smarter-buildings-hunters-stored
-      text: '{{hunters_stored}}'
-      display: Number
-      contents:
-        type: integer
-        value: 4
-        min: 1
-        max: 100
-        step: 1
 - url: smarter-buildings.repair.ai
   name: smarter-buildings-repair-ai
   display: UCP2Switch
@@ -333,58 +159,6 @@ options:
   category:
   - '{{ai}}'
   - '{{improvements}}'
-  children:
-  - display: GroupBox
-    hasHeader: true
-    accordion:
-      enabled: true
-    header: '{{ai_damage}}'
-    text: '{{ai_damage_tooltip}}'
-    children:
-    - url: smarter-buildings.repair.ai_damage
-      name: smarter-buildings-repair-ai-damage
-      text: '{{ai_damage}}'
-      display: Number
-      contents:
-        type: integer
-        value: 20
-        min: 1
-        max: 99
-        step: 5
-  - display: GroupBox
-    hasHeader: true
-    accordion:
-      enabled: true
-    header: '{{ai_interval}}'
-    text: '{{ai_interval_tooltip}}'
-    children:
-    - url: smarter-buildings.repair.ai_interval
-      name: smarter-buildings-repair-ai-interval
-      text: '{{ai_interval}}'
-      display: Number
-      contents:
-        type: integer
-        value: 60
-        min: 1
-        max: 3600
-        step: 5
-  - display: GroupBox
-    hasHeader: true
-    accordion:
-      enabled: true
-    header: '{{ai_minimum_gold}}'
-    text: '{{ai_minimum_gold_tooltip}}'
-    children:
-    - url: smarter-buildings.repair.ai_minimum_gold
-      name: smarter-buildings-repair-ai-minimum-gold
-      text: '{{ai_minimum_gold}}'
-      display: Number
-      contents:
-        type: integer
-        value: 2000
-        min: 0
-        max: 100000
-        step: 100
 - url: smarter-buildings.ai.decorations
   name: smarter-buildings-ai-decorations
   display: UCP2Switch
@@ -396,5 +170,135 @@ options:
   category:
   - '{{ai}}'
   - '{{fixes}}'
+- url: smarter-buildings.repair.x
+  name: smarter-buildings-repair-x
+  display: Number
+  contents:
+    type: integer
+    value: 340
+    min: 0
+    max: 800
+    step: 1
+  hidden: true
+- url: smarter-buildings.repair.y
+  name: smarter-buildings-repair-y
+  display: Number
+  contents:
+    type: integer
+    value: 466
+    min: 0
+    max: 600
+    step: 1
+  hidden: true
+- url: smarter-buildings.firemen.tiles
+  name: smarter-buildings-firemen-tiles
+  display: Number
+  contents:
+    type: integer
+    value: 20
+    min: 1
+    max: 200
+    step: 1
+  hidden: true
+- url: smarter-buildings.stables.breed_seconds
+  name: smarter-buildings-stables-breed-seconds
+  display: Number
+  contents:
+    type: integer
+    value: 0
+    min: 0
+    max: 3600
+    step: 5
+  hidden: true
+- url: smarter-buildings.stables.normal_horses
+  name: smarter-buildings-stables-normal-horses
+  display: Number
+  contents:
+    type: integer
+    value: 4
+    min: 1
+    max: 100
+    step: 1
+  hidden: true
+- url: smarter-buildings.stables.slowdown_factor
+  name: smarter-buildings-stables-slowdown-factor
+  display: Number
+  contents:
+    type: integer
+    value: 3
+    min: 1
+    max: 10
+    step: 1
+  hidden: true
+- url: smarter-buildings.stables.slowest_seconds
+  name: smarter-buildings-stables-slowest-seconds
+  display: Number
+  contents:
+    type: integer
+    value: 600
+    min: 1
+    max: 7200
+    step: 30
+  hidden: true
+- url: smarter-buildings.hunters.chance
+  name: smarter-buildings-hunters-chance
+  display: Number
+  contents:
+    type: integer
+    value: 50
+    min: 0
+    max: 100
+    step: 5
+  hidden: true
+- url: smarter-buildings.hunters.carry
+  name: smarter-buildings-hunters-carry
+  display: Number
+  contents:
+    type: integer
+    value: 2
+    min: 1
+    max: 10
+    step: 1
+  hidden: true
+- url: smarter-buildings.hunters.stored
+  name: smarter-buildings-hunters-stored
+  display: Number
+  contents:
+    type: integer
+    value: 4
+    min: 1
+    max: 100
+    step: 1
+  hidden: true
+- url: smarter-buildings.repair.ai_damage
+  name: smarter-buildings-repair-ai-damage
+  display: Number
+  contents:
+    type: integer
+    value: 20
+    min: 1
+    max: 99
+    step: 5
+  hidden: true
+- url: smarter-buildings.repair.ai_interval
+  name: smarter-buildings-repair-ai-interval
+  display: Number
+  contents:
+    type: integer
+    value: 60
+    min: 1
+    max: 3600
+    step: 5
+  hidden: true
+- url: smarter-buildings.repair.ai_minimum_gold
+  name: smarter-buildings-repair-ai-minimum-gold
+  display: Number
+  contents:
+    type: integer
+    value: 2000
+    min: 0
+    max: 100000
+    step: 100
+  hidden: true
 meta:
   version: 1.0.0

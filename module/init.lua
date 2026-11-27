@@ -985,15 +985,19 @@ local function registerAICFields(intervals, minimumGold, defaultInterval, defaul
     if not ok then
       log(WARNING, MODULE_NAME .. ": could not register AIC field " .. name .. ": " .. tostring(message))
     end
+    return ok
   end
-  field(AIC_INTERVAL, intervals, defaultInterval,
+  local intervalRegistered = field(AIC_INTERVAL, intervals, defaultInterval,
     function(seconds)
       return math.max(1, math.tointeger(math.floor(seconds)) or defaultInterval) * TICKS_PER_SECOND
     end,
     function(ticks) return ticks // TICKS_PER_SECOND end)
-  field(AIC_MINIMUM_GOLD, minimumGold, defaultGold,
+  local goldRegistered = field(AIC_MINIMUM_GOLD, minimumGold, defaultGold,
     function(gold) return math.max(0, math.tointeger(math.floor(gold)) or defaultGold) end,
     function(gold) return gold end)
+  if not (intervalRegistered and goldRegistered) then
+    log(ERROR, "Some per-lord AI repair settings could not be applied. Default settings are used for those values.")
+  end
 end
 
 ---------------------------------------------------------------------------------------

@@ -12,23 +12,13 @@ gold_tooltip: Altın isteyen binalar (örneğin kiliseler) onarılırken de o or
 fire_blocks: Bina yanarken onarım yapılamaz
 fire_blocks_tooltip: |-
   Yanan bir bina yakında düşman varmış gibi sayılır: yangın sönene kadar Onar düğmesi devre dışı kalır. Kuleler ve kapılar için de geçerlidir.
-repair_x: Düğmenin yatay konumu
-repair_x_tooltip: |-
-  Onar düğmesinin bina panelinin sol kenarından uzaklığı. Kuleler 340 kullanır. Orada kendi düğmesi olan paneller bunu kaydırır: ambar 130 sola, han 50, mühendis ve tünelci loncaları 80 sağa; kışlada mazgalların hemen altında ortada, paralı asker kampında altta ortadadır.
-repair_y: Düğmenin dikey konumu
-repair_y_tooltip: Onar düğmesinin bina panelinin üst kenarından uzaklığı. Kuleler 466 kullanır.
 ai: Yapay zekâ
 ai_tooltip: Her onarım aralığı dolduğunda yapay zekâ lordu binalarını (kuleler ve kapılar dâhil) gözden geçirir; altını alt sınırının üzerindeyse, orada yangın yoksa ve yakında düşman yoksa en hasarlı binayı onarır. Eksik odun ve taşı pazardan alır. Yapay zekâ karakter dosyaları BuildingRepairInterval ve BuildingRepairMinimumGold AIC alanlarıyla lord başına aralık ve alt sınır belirleyebilir (aicloader modülü gerekir).
 ai_damage: Yapay zekânın onarıma başlama hasarı (yüzde)
-ai_damage_tooltip: Yapay zekâ lordu yalnızca canının en az bu kadarını kaybetmiş binaları onarır.
 ai_interval: Yapay zekâ onarım aralığı (saniye)
-ai_interval_tooltip: Normal oyun hızında yapay zekâ lordunun iki onarım arasında beklediği süre. BuildingRepairInterval AIC alanı tek bir lord için bunu geçersiz kılar.
 ai_minimum_gold: Yapay zekâ yalnızca bu altından fazlası varken onarır
-ai_minimum_gold_tooltip: Yapay zekâ lordu yalnızca hazinesinde bundan fazla altın varken onarım yapar. BuildingRepairMinimumGold AIC alanı tek bir lord için bunu geçersiz kılar.
 firemen: İtfaiyeciler birden fazla yangına dağılır
 firemen_tooltip: Birden çok yangın çıktığında bir itfaiyeci, hepsi aynı yangına koşmak yerine başka bir itfaiyecinin henüz gitmediği yangını seçer.
-firemen_tiles: İtfaiyecilerin paylaşılan yangından kaçınma gücü
-firemen_tiles_tooltip: Bir yangına hâlihazırda koşan her itfaiyeci, sonraki itfaiyeci için o yangını bu kadar kare daha uzak gösterir.
 maces: Yeni demirciler gürz üretir
 maces_tooltip: Yeni kurulan demirci atölyesi kılıç yerine gürz ile başlar. Yine de değiştirebilirsin. Varsayılan olarak kapalı.
 breed: Ahırlar şövalyelerin aldığı atların yenisini yetiştirir
@@ -36,16 +26,11 @@ breed_tooltip: Bir şövalye at aldığında ahır hemen yeni bir at yetiştirme
 stable_panel: Ahır paneli yaşayan atları ve sonraki atı gösterir
 stable_panel_tooltip: Ahırın «kullanımda» sayısı bu ahırın atlarından birine binen yaşayan şövalyeleri sayar; kulelerin can çubuğuna benzer bir çubuk ise sonraki atın ilerlemesini gösterir. Dört bölme de doluyken çubuk doludur.
 breed_seconds: Bir at yetiştirme süresi (saniye)
-breed_seconds_tooltip: Normal oyun hızında, az sayıda atı hayattayken ahırın yeni bir at yetiştirme süresi. 0 oyunun kendi süresini korur (yaklaşık 14 saniye).
 slowdown: Yaşayan at arttıkça ahırlar daha yavaş yetiştirir
 slowdown_tooltip: Bir ahırın yaşayan atları bölmelerindeki atlar ile atlarına binen şövalyelerin toplamıdır. Normal sayının altındayken normal sürede yetişir; bundan sonraki her at bir öncekinden daha uzun sürer ve en yavaş sürede sabitlenir — ahır yetiştirmeyi asla bırakmaz. Şövalyeler ölünce yeniden hızlanır.
 normal_horses: Yavaşlamadan önceki yaşayan at sayısı
-normal_horses_tooltip: Yetiştirme yavaşlamadan önce bir ahırın kaç atının hayatta olabileceği. 4 ile ilk dört at normal hızda, beşinci ilk kez daha yavaş gelir.
 slowdown_factor: Her ek at için yavaşlama çarpanı
-slowdown_factor_tooltip: Normal sayının üzerindeki her at bir öncekinin bu kadar katı sürer. 3 ile beşinci at üç kat, altıncı dokuz kat uzun sürer.
 slowest_seconds: En yavaş yetiştirme süresi (saniye)
-slowest_seconds_tooltip: |-
-  Normal oyun hızında yetiştirme bundan daha yavaş olmaz: çok sayıda yaşayan atı olan bir ahır yine de ara sıra yeni at yetiştirir.
 dairy_scrub: Süt çiftlikleri seyrek çalılığa kurulabilir
 dairy_scrub_tooltip: Bir çiftlik yeterince verimli zemin gerektirir ve normalde yalnızca vaha otu ile sık çalılık sayılır. Süt çiftlikleri için seyrek çalılık da sayılır. Buğday, şerbetçiotu ve elma çiftlikleri değişmez.
 ground_overlay: Çiftlikler uygunsuz zemini kırmızı gösterir
@@ -54,19 +39,13 @@ keep_cows: Sütçü öldüğünde inekler kalır
 keep_cows_tooltip: Bir sütçü öldürüldüğünde inekleri kaybolmak yerine çiftlikte kalır; böylece tabaklar onları almaya devam eder ve yeni çiftçi onları orada bulur. Çiftlik yıkıldığında veya uyutulduğunda inekler yine kaybolur.
 hunters_tannery: Geyikler bitince avcılar tabakhanelerden leş alır
 hunters_tannery_tooltip: Tabakçının yüzdüğü her inek tabakhanede bir leş bırakır. Haritada geyik kalmadığında boşta bir avcı kendi lordunun leş bulunan tabakhanesine gider, kulübesine taşır, ete işler (bir geyik kadar) ve ambara götürür.
-hunters_chance: Geyik varken avcıların tabakhaneyi seçme olasılığı (yüzde)
-hunters_chance_tooltip: Hâlâ geyik varken yola çıkan bir avcı avlanmak yerine bu olasılıkla leşli bir tabakhaneye gider. Geyik kalmadığında her zaman tabakhaneye gider.
-hunters_carry: Bir avcının tek seferde aldığı leş sayısı
-hunters_carry_tooltip: Bir avcının tek gidişte tabakhaneden kaç leş aldığı.
-hunters_stored: Bir tabakhanenin sakladığı leş sayısı
-hunters_stored_tooltip: Bir tabakhanenin avcılar için beklettiği en fazla leş sayısı. Fazla inekler leş bırakmaz.
 ai_decorations: Yapay zekâ bayrak, mangal ve kazıkta kafa yığınlarını önle
 ai_decorations_tooltip: Yapay zekâ kalesindeki sabit noktalara bayrak (veya kazıkta kafa) ile mangal koyar ve eksik gördükçe yenisini ekler. Eskiden yalnızca en üstteki nesneye baktığı için iç kale bayrağı, toz veya karga yüzünden aynı yere sonsuza dek yığın oluşturuyordu. Artık o noktadaki her şeyi görür ve üst üste binen veya boşlukta kalan kendi süslemelerini temizler.
 balance_changes: Denge değişiklikleri
 bugfixes: Hata düzeltmeleri
 fixes: Düzeltmeler
 improvements: İyileştirmeler
-qol: Yaşam kalitesi
+qol: Kullanım kolaylığı
 tags.behavior: Davranış
 tags.ai: Yapay zekâ
 tags.economy: Ekonomi

@@ -12,23 +12,13 @@ gold_tooltip: Los edificios que cuestan oro (por ejemplo, iglesias) también cue
 fire_blocks: Sin reparaciones mientras un edificio arde
 fire_blocks_tooltip: |-
   Un edificio en llamas cuenta como un enemigo cercano: el botón Reparar queda deshabilitado hasta que se apague el fuego. También para torres y puertas.
-repair_x: Posición horizontal del botón
-repair_x_tooltip: |-
-  Posición del botón Reparar en el panel del edificio medida desde el borde izquierdo. Las torres usan 340. Los paneles con botones propios ahí lo desplazan: granero 130 a la izquierda, posada 50 y gremios de ingenieros y zapadores 80 a la derecha; el cuartel lo sitúa en el centro bajo las almenas y el campamento de mercenarios en el centro abajo.
-repair_y: Posición vertical del botón
-repair_y_tooltip: Posición del botón Reparar en el panel del edificio medida desde arriba. Las torres usan 466.
 ai: IA
 ai_tooltip: Cada vez que pasa su intervalo de reparación, un señor de la IA revisa sus edificios (incluidas torres y puertas) y repara el más dañado si tiene más oro que su mínimo, no hay fuego allí y no hay enemigos cerca. Compra en el mercado la madera y piedra que le falten. Los archivos AIC pueden fijar el intervalo y mínimo por señor mediante BuildingRepairInterval y BuildingRepairMinimumGold (requiere el módulo aicloader).
 ai_damage: La IA repara a partir de este daño (porcentaje)
-ai_damage_tooltip: Un señor de la IA solo repara un edificio que haya perdido al menos este porcentaje de su salud.
 ai_interval: Intervalo de reparación de la IA (segundos)
-ai_interval_tooltip: Cuánto espera un señor de la IA entre dos reparaciones a velocidad normal. El campo AIC BuildingRepairInterval lo sustituye para un señor concreto.
 ai_minimum_gold: La IA solo repara con más oro que
-ai_minimum_gold_tooltip: Un señor de la IA solo repara mientras su tesoro supere esta cantidad. El campo AIC BuildingRepairMinimumGold lo sustituye para un señor concreto.
 firemen: Los bomberos se reparten entre varios incendios
 firemen_tooltip: Cuando hay varios incendios, un bombero elige uno al que no corra ya otro bombero, en lugar de ir todos al mismo.
-firemen_tiles: Cuánto evitan los bomberos un incendio ya atendido
-firemen_tiles_tooltip: Cada bombero ya de camino a un incendio hace que cuente como estas casillas más lejos para el siguiente bombero.
 maces: Las nuevas herrerías fabrican mazas
 maces_tooltip: Una herrería recién construida empieza fabricando mazas en lugar de espadas. Aún puedes cambiarlo. Desactivado por defecto.
 breed: Los establos reponen los caballos que toman los caballeros
@@ -36,16 +26,11 @@ breed_tooltip: Cuando un caballero toma un caballo, el establo empieza a criar u
 stable_panel: El panel del establo muestra caballos vivos y el próximo caballo
 stable_panel_tooltip: El número «en uso» del establo cuenta los caballeros vivos que montan uno de sus caballos, y una barra como la salud de las torres muestra el avance del próximo caballo. La barra está llena mientras las cuatro plazas estén ocupadas.
 breed_seconds: Tiempo para criar un caballo (segundos)
-breed_seconds_tooltip: Cuánto tarda un establo a velocidad normal en criar un nuevo caballo mientras pocos de sus caballos están vivos. 0 mantiene el tiempo del juego (unos 14 segundos).
 slowdown: Los establos crían más despacio cuantos más caballos suyos vivan
 slowdown_tooltip: Los caballos vivos de un establo son los que están en sus plazas más los caballeros que montan uno suyo. Por debajo del número normal se crían al ritmo habitual; cada caballo adicional tarda más que el anterior hasta el tiempo máximo —el establo nunca deja de criar—. Al morir caballeros vuelve a acelerarse.
 normal_horses: Caballos vivos antes de ralentizar la cría
-normal_horses_tooltip: Cuántos caballos de un establo pueden vivir antes de que la cría se ralentice. Con 4, los cuatro primeros llegan a velocidad normal y el quinto es el primero más lento.
 slowdown_factor: Factor de ralentización por cada caballo adicional
-slowdown_factor_tooltip: Cada caballo por encima del número normal tarda estas veces más que el anterior. Con 3, el quinto tarda el triple, el sexto nueve veces más, etc.
 slowest_seconds: Tiempo de cría más lento (segundos)
-slowest_seconds_tooltip: |-
-  La cría nunca tarda más que esto a velocidad normal: un establo con muchos caballos vivos sigue criando un caballo cada cierto tiempo.
 dairy_scrub: Las granjas lecheras pueden colocarse en matorral ligero
 dairy_scrub_tooltip: Una granja necesita bastante terreno fértil y normalmente solo cuentan la hierba de oasis y el matorral denso. Para las granjas lecheras también cuenta el matorral ligero. Las de trigo, lúpulo y manzanas no cambian.
 ground_overlay: Las granjas muestran en rojo el mal terreno
@@ -54,19 +39,13 @@ keep_cows: Las vacas permanecen cuando muere su granjero lechero
 keep_cows_tooltip: Si matan a un granjero lechero, sus vacas siguen en la granja en lugar de desaparecer, así los curtidores pueden seguir recogiéndolas y el nuevo granjero las encuentra allí. Las vacas siguen desapareciendo al demoler o desactivar la granja.
 hunters_tannery: Los cazadores recogen reses de curtidurías sin ciervos
 hunters_tannery_tooltip: Cada vaca despellejada por un curtidor deja una res en su curtiduría. Cuando no quedan ciervos en el mapa, un cazador inactivo va a una curtiduría de su señor con reses, las lleva a su cabaña, las descuartiza en carne (tanta como un ciervo) y la lleva al granero.
-hunters_chance: Probabilidad de ir a la curtiduría mientras haya ciervos (porcentaje)
-hunters_chance_tooltip: Mientras aún haya ciervos, un cazador que sale acude a una curtiduría con reses con esta frecuencia. Si no quedan ciervos siempre va a la curtiduría.
-hunters_carry: Reses que lleva un cazador a la vez
-hunters_carry_tooltip: Cuántas reses recoge un cazador de la curtiduría en un viaje.
-hunters_stored: Reses que guarda una curtiduría
-hunters_stored_tooltip: Máximo de reses que una curtiduría guarda para los cazadores. Más vacas no dejan nada.
 ai_decorations: Evitar pilas de banderas, braseros o cabezas en picas de la IA
 ai_decorations_tooltip: Una IA coloca banderas (o cabezas en picas) y braseros en puntos fijos de su castillo y añade uno si falta. Como solo miraba el objeto superior, cualquier otra cosa —la bandera de la fortaleza, polvo, un cuervo— hacía que se apilaran sin fin. Ahora ve todo en esa casilla y retira acumulaciones o adornos flotantes propios.
 balance_changes: Cambios de equilibrio
-bugfixes: Correcciones
+bugfixes: Correcciones de errores
 fixes: Correcciones
 improvements: Mejoras
-qol: Calidad de vida
+qol: Comodidad de juego
 tags.behavior: Comportamiento
 tags.ai: IA
 tags.economy: Economía

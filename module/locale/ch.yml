@@ -12,23 +12,13 @@ gold_tooltip: 造价包含金币的建筑（如教堂）修复时同样按比例
 fire_blocks: 着火期间禁止修复建筑
 fire_blocks_tooltip: |-
   着火的建筑视同附近有敌军：灭火前修复按钮呈灰色不可用。对塔楼和城门同样生效。
-repair_x: 修复按钮水平位置
-repair_x_tooltip: |-
-  修复按钮在建筑面板中的水平坐标（距左边缘）。塔楼默认 340。该处已有按钮的面板会自动避让：粮仓左移 130，酒馆右移 50，工程师与隧道工公会右移 80；兵营居中位于垛口下方，雇佣兵营地居中位于底部。
-repair_y: 修复按钮垂直位置
-repair_y_tooltip: 修复按钮在建筑面板中的垂直坐标（距顶部边缘）。塔楼默认 466。
 ai: AI
 ai_tooltip: 每当达到修复间隔，AI 领主会检查名下所有建筑（含塔楼和城门）并修复受损最重的一座，前提是其金币高于最低门槛、该建筑未着火且附近无敌军。缺少的木材与石料会从市场购买。AI 角色文件可通过 AIC 字段 BuildingRepairInterval 和 BuildingRepairMinimumGold 为各领主单独设定间隔和金币下限（需搭配 aicloader 模块）。
 ai_damage: AI 触发修复的最低受损度（百分比）
-ai_damage_tooltip: AI 领主仅修复生命值至少损失这么多百分比的建筑。
 ai_interval: AI 修复间隔（秒）
-ai_interval_tooltip: 正常游戏速度下，AI 领主两次修复之间的等待时间。AIC 字段 BuildingRepairInterval 可为单个领主覆盖此值。
 ai_minimum_gold: AI 执行修复所需的最低金币
-ai_minimum_gold_tooltip: AI 领主仅在国库金币高于该值时才进行修复。AIC 字段 BuildingRepairMinimumGold 可为单个领主覆盖此值。
 firemen: 救火员分散扑救多处火情
 firemen_tooltip: 同时出现多处火灾时，救火员会优先选择尚无其他救火员奔赴的火场，不再扎堆冲向同一处。
-firemen_tiles: 救火员避开同一火场的权重
-firemen_tiles_tooltip: 每已有一名救火员奔向某处火场，在下一名救火员眼中该火场的距离便等效增加这么多格。
 maces: 新建铁匠铺默认生产链锤
 maces_tooltip: 新建造的铁匠铺默认起始生产链锤而非剑，你仍可手动切换。默认关闭。
 breed: 马厩立即繁育被骑士牵走的战马
@@ -36,16 +26,11 @@ breed_tooltip: 骑士牵走战马后，马厩立刻开始繁育新马。此前�
 stable_panel: 马厩面板显示存活战马数与下一匹进度
 stable_panel_tooltip: 马厩的「使用中」数值统计骑乘本马厩战马的存活骑士数，并新增类似塔楼血条的进度条显示下一匹战马的繁育进度；四个马位皆满时进度条满格。
 breed_seconds: 繁育一匹战马所需时间（秒）
-breed_seconds_tooltip: 正常游戏速度下，存活战马较少时马厩繁育新马的耗时。设为 0 保留原版时间（约 14 秒）。
 slowdown: 存活战马越多，马厩繁育越慢
 slowdown_tooltip: 马厩的存活战马包括厩内马匹及骑乘其战马的存活骑士。低于常规数量时按正常速度繁育；每超出一名骑士耗时递增直至最慢上限，但永不停止繁育。骑士阵亡后繁育会重新加快。
 normal_horses: 繁育减速前的存活战马数
-normal_horses_tooltip: 在繁育变慢之前一座马厩允许拥有的存活战马数。设为 4 时，前四匹按正常速度产出，第五匹起开始变慢。
 slowdown_factor: 每多一匹马的减速倍率
-slowdown_factor_tooltip: 超出常规数量后，每多一匹马耗时为前一匹的这么多倍。设为 3 时，第五匹耗时为正常的 3 倍，第六匹为 9 倍，以此类推。
 slowest_seconds: 最慢繁育时间（秒）
-slowest_seconds_tooltip: |-
-  正常游戏速度下繁育耗时不会慢于此值：即便存活战马很多，马厩仍会定期产出一匹新马。
 dairy_scrub: 奶牛场可建在稀疏灌木地上
 dairy_scrub_tooltip: 农场需要足够的肥沃土地，原版只认绿洲草地和茂密灌木。本选项允许奶牛场也利用稀疏灌木地；小麦、啤酒花和苹果园不变。
 ground_overlay: 放置农场时用红色标出不可用土地
@@ -54,19 +39,13 @@ keep_cows: 奶牛场工人死亡时保留奶牛
 keep_cows_tooltip: 奶牛场工人被杀后，奶牛不再随之消失，而是留在场内供皮革工人照常牵走，新工人到岗后也能直接使用。拆除或停工农场时奶牛仍会消失。
 hunters_tannery: 鹿群耗尽后猎人从皮革作坊取兽尸
 hunters_tannery_tooltip: 皮革工人每剥一头牛都会在作坊留下兽尸。地图上不再有鹿时，空闲猎人会前往己方领主存有兽尸的皮革作坊取尸回屋，宰割成肉（产量等同于一头鹿）并送入粮仓。
-hunters_chance: 仍有鹿时猎人选择皮革作坊的概率（百分比）
-hunters_chance_tooltip: 地图上仍有鹿时，猎人出发时有此概率优先前往有兽尸的皮革作坊而非打猎；无鹿时则始终前往皮革作坊。
-hunters_carry: 猎人单次携带的兽尸数
-hunters_carry_tooltip: 猎人一次往返从皮革作坊带回的兽尸数量。
-hunters_stored: 皮革作坊最多存放的兽尸数
-hunters_stored_tooltip: 单座皮革作坊为猎人暂存的兽尸上限，超出后宰杀的牛不再留下兽尸。
 ai_decorations: 防止 AI 旗帜、火盆或长矛人头重复堆叠
 ai_decorations_tooltip: AI 会在城堡固定点位摆放旗帜（或长矛人头）和火盆，发现缺失就会补放。原版只检查格子最顶层物体，导致主堡旗帜、灰尘或乌鸦触发无限堆叠。现在 AI 会检查格内所有物体，并清理堆叠或悬空的己方装饰。
-balance_changes: 平衡性改动
+balance_changes: 平衡调整
 bugfixes: 错误修复
-fixes: 修复
+fixes: 修正
 improvements: 改进
-qol: 体验优化
+qol: 便利性改进
 tags.behavior: 行为
 tags.ai: AI
 tags.economy: 经济

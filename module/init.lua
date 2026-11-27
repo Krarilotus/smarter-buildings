@@ -283,6 +283,7 @@ end
 local function tickCounter(feature)
   local site, problem = core.AOBScanUnique(AOB_TICKS)
   if site then return core.readInteger(site + 8) end
+  log(ERROR, "Timed building improvements are off: " .. feature .. ".")
   log(WARNING, string.format("%s: game tick counter %s, %s stays off", MODULE_NAME, problem, feature))
 end
 
@@ -476,6 +477,7 @@ local function patchHorseBreeding(v, config, panel, site)
       jumpTo(stable, wrapper, STABLE_PANEL_ENTRY)
     end)
     if not ok then
+      log(ERROR, "Custom stable breeding figures are off in the stable panel.")
       log(WARNING, MODULE_NAME .. ": the stable panel shows the game's own numbers: " .. tostring(message))
     end
   end
@@ -926,6 +928,7 @@ local function installRepairButton(v, x, y, gold)
     jumpTo(layerSite, layer, COST_TEXT_LAYER_SIZE)
   end)
   if not ok then
+    log(ERROR, "The repair cost label is off. The Repair button could not be updated.")
     log(WARNING, MODULE_NAME .. ": no repair cost text on the Repair button: " .. tostring(message))
   end
 
@@ -1069,6 +1072,7 @@ local function enable(self, config)
     if ok then
       patchHorseBreeding(v, config, setting(config, "stables", "panel"), result)
     else
+      log(ERROR, "Stable breeding is off. The breeding code could not be installed.")
       log(WARNING, tostring(result) .. "; stable breeding is off")
     end
   end
@@ -1083,7 +1087,10 @@ local function enable(self, config)
   end
   if setting(config, "ai", "decorations") then
     local ok, message = pcall(patchAiDecorations)
-    if not ok then log(WARNING, tostring(message) .. "; AI decorations are left as they are") end
+    if not ok then
+      log(ERROR, "AI decoration changes are off.")
+      log(WARNING, tostring(message))
+    end
   end
   if hunters then
     patchHunters(v, config)

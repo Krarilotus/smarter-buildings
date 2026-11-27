@@ -22,7 +22,7 @@ maces_tooltip: Utilisez le panneau habituel du forgeron pour changer la producti
 breed: Remplacer les chevaux pris par les chevaliers
 breed_tooltip: Les écuries élèvent des remplaçants pour les chevaux pris par les chevaliers.
 stable_panel: Afficher les chevaux et le prochain remplaçant
-stable_panel_tooltip: Sélectionnez une écurie pour voir ses chevaux et le prochain remplaçant.
+stable_panel_tooltip: Sélectionnez une écurie pour voir ses chevaux et le temps restant avant le suivant.
 breed_seconds: Temps d'élevage d'un cheval (secondes)
 slowdown: Ralentir l’élevage quand plus de chevaux sont en vie
 slowdown_tooltip: Les écuries mettent plus de temps à remplacer les chevaux tant que davantage des leurs survivent.

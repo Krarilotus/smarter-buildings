@@ -16,13 +16,13 @@ ai_damage: KI repariert ab diesem Schaden (Prozent)
 ai_interval: KI-Reparaturintervall (Sekunden)
 ai_minimum_gold: KI repariert nur ab mehr Gold als
 firemen: Löschtrupps auf mehrere Brände verteilen
-firemen_tooltip: Feuerwehrleute versuchen, verschiedene Brände getrennt abzudecken.
+firemen_tooltip: Löschtrupps versuchen, sich auf verschiedene Brände zu verteilen.
 maces: Neue Schmieden fertigen standardmäßig Streitkolben
 maces_tooltip: Wechsle die Produktion wie gewohnt im Menü der Schmiede.
-breed: Von Rittern genommene Pferde nachzüchten
-breed_tooltip: Ställe züchten Ersatz für Pferde, die von Rittern genommen wurden.
-stable_panel: Pferde und nächsten Ersatz anzeigen
-stable_panel_tooltip: Wähle einen Stall aus, um seine Pferde und den nächsten Ersatz zu sehen.
+breed: Ersatz für die Pferde der Ritter züchten
+breed_tooltip: Ställe züchten Ersatz für Pferde, die Ritter mitgenommen haben.
+stable_panel: Pferde und Zeit bis zum nächsten Pferd anzeigen
+stable_panel_tooltip: Wähle einen Stall, um seine Pferde und die Zeit bis zum nächsten Pferd zu sehen.
 breed_seconds: Zuchtzeit pro Pferd (Sekunden)
 slowdown: Zucht bei mehr lebenden Pferden verlangsamen
 slowdown_tooltip: Ställe brauchen länger für Ersatzpferde, solange mehr ihrer Pferde noch leben.

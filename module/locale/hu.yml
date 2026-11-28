@@ -51,3 +51,9 @@ tags.bugfixes: Hibajavítások
 tags.interface: Felület
 ai_repair: Az MI-lordok javíthassanak épületeket
 doors_group: Elzárt ajtók
+cat_ai_building_repair: Épületek elhelyezése és javítása
+cat_building_farming: Építés és gazdálkodás
+cat_building_repair_qol: Építés és javítás
+cat_buildings_placement: Épületek és elhelyezés
+cat_economy_controls: Gazdasági vezérlés
+cat_economy_upkeep: Gazdaság és fenntartás

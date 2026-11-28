@@ -51,3 +51,9 @@ tags.bugfixes: رفع اشکال
 tags.interface: رابط کاربری
 ai_repair: اجازهٔ تعمیر ساختمان‌ها به لردهای هوش مصنوعی
 doors_group: درهای مسدودشده
+cat_ai_building_repair: جای‌گذاری و تعمیر ساختمان‌ها
+cat_building_farming: ساخت‌وساز و کشاورزی
+cat_building_repair_qol: ساخت و تعمیر
+cat_buildings_placement: ساختمان‌ها و جای‌گذاری
+cat_economy_controls: کنترل‌های اقتصادی
+cat_economy_upkeep: اقتصاد و نگهداری

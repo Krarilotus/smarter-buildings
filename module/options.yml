@@ -29,6 +29,7 @@ options:
     text: '{{unstuck_tooltip}}'
   category:
   - '{{bugfixes}}'
+  - '{{cat_buildings_placement}}'
 - url: smarter-buildings.firemen.spread
   name: smarter-buildings-firemen-spread
   display: UCP2Switch
@@ -39,6 +40,7 @@ options:
   text: '{{firemen_tooltip}}'
   category:
   - '{{bugfixes}}'
+  - '{{cat_buildings_placement}}'
 - url: smarter-buildings.farms.keep_cows
   name: smarter-buildings-farms-keep-cows
   display: UCP2Switch
@@ -49,6 +51,7 @@ options:
   text: '{{keep_cows_tooltip}}'
   category:
   - '{{bugfixes}}'
+  - '{{cat_buildings_placement}}'
 - url: smarter-buildings.repair.button
   name: smarter-buildings-repair-button
   display: UCP2Switch
@@ -59,6 +62,7 @@ options:
   text: '{{button_tooltip}}'
   category:
   - '{{qol}}'
+  - '{{cat_building_repair_qol}}'
 - url: smarter-buildings.stables.panel
   name: smarter-buildings-stables-panel
   display: UCP2Switch
@@ -69,6 +73,7 @@ options:
   text: '{{stable_panel_tooltip}}'
   category:
   - '{{qol}}'
+  - '{{cat_building_repair_qol}}'
 - url: smarter-buildings.farms.ground_overlay
   name: smarter-buildings-farms-ground-overlay
   display: UCP2Switch
@@ -79,6 +84,7 @@ options:
   text: '{{ground_overlay_tooltip}}'
   category:
   - '{{qol}}'
+  - '{{cat_building_repair_qol}}'
 - url: smarter-buildings.blacksmith.maces
   name: smarter-buildings-blacksmith-maces
   display: UCP2Switch
@@ -89,6 +95,7 @@ options:
   text: '{{maces_tooltip}}'
   category:
   - '{{qol}}'
+  - '{{cat_economy_controls}}'
 - url: smarter-buildings.repair.fire_blocks
   name: smarter-buildings-repair-fire-blocks
   display: UCP2Switch
@@ -99,6 +106,7 @@ options:
   text: '{{fire_blocks_tooltip}}'
   category:
   - '{{balance_changes}}'
+  - '{{cat_building_farming}}'
 - url: smarter-buildings.repair.gold
   name: smarter-buildings-repair-gold
   display: UCP2Switch
@@ -109,6 +117,7 @@ options:
   text: '{{gold_tooltip}}'
   category:
   - '{{balance_changes}}'
+  - '{{cat_building_farming}}'
 - url: smarter-buildings.stables.breed
   name: smarter-buildings-stables-breed
   display: UCP2Switch
@@ -128,6 +137,7 @@ options:
     text: '{{slowdown_tooltip}}'
   category:
   - '{{balance_changes}}'
+  - '{{cat_building_farming}}'
 - url: smarter-buildings.farms.dairy_scrub
   name: smarter-buildings-farms-dairy-scrub
   display: UCP2Switch
@@ -138,6 +148,7 @@ options:
   text: '{{dairy_scrub_tooltip}}'
   category:
   - '{{balance_changes}}'
+  - '{{cat_building_farming}}'
 - url: smarter-buildings.hunters.tannery
   name: smarter-buildings-hunters-tannery
   display: UCP2Switch
@@ -148,6 +159,7 @@ options:
   text: '{{hunters_tannery_tooltip}}'
   category:
   - '{{balance_changes}}'
+  - '{{cat_building_farming}}'
 - url: smarter-buildings.repair.ai
   name: smarter-buildings-repair-ai
   display: UCP2Switch
@@ -159,6 +171,7 @@ options:
   category:
   - '{{ai}}'
   - '{{improvements}}'
+  - '{{cat_economy_upkeep}}'
 - url: smarter-buildings.ai.decorations
   name: smarter-buildings-ai-decorations
   display: UCP2Switch
@@ -170,6 +183,7 @@ options:
   category:
   - '{{ai}}'
   - '{{fixes}}'
+  - '{{cat_ai_building_repair}}'
 - url: smarter-buildings.repair.x
   name: smarter-buildings-repair-x
   display: Number

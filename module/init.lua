@@ -273,8 +273,8 @@ local AI_RETRY_TICKS = 80             -- an AI lord with nothing to repair looks
 ---------------------------------------------------------------------------------------
 
 local function scan(pattern, purpose)
-  local address, reason = core.AOBScanUnique(pattern)
-  if not address then error(purpose .. " " .. reason, 0) end
+  local found, address = pcall(core.AOBScan, pattern)
+  if not found then error(purpose .. " not found", 0) end
   return address
 end
 
@@ -1040,11 +1040,11 @@ local function enable(self, config)
   local function bind(pattern, purpose)
     local binding = bindings[pattern]
     if not binding then
-      local address, reason = core.AOBScanUnique(pattern)
-      binding = {address = address, reason = reason}
+      local found, address = pcall(core.AOBScan, pattern)
+      binding = {address = found and address or nil}
       bindings[pattern] = binding
     end
-    if not binding.address then error(purpose .. " " .. binding.reason, 0) end
+    if not binding.address then error(purpose .. " not found", 0) end
     return binding.address
   end
   local function ticks()
